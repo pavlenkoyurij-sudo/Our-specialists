@@ -1,0 +1,285 @@
+и<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+        <!--СЕО ОПИС - МЕГА ВАЖЛИВО-->
+    <meta name="desccription"
+    content="Калалог майстрів та будівельників вашого міста. Сантехніки, електрики, будівельники, зварювальники та інші сеціалісти.">
+    
+    <title>Ремонт | Будівництво</title>
+
+    <!--відсилка до стилів-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+
+<body>
+
+    <header>
+        <h2>Майстри і будівельники нашого міста</h2>
+        <nav>
+                <a href="#home">Головна</a>
+                <a href="#masters">Наші майстри</a>
+                <a href="#contacts">Контакти</a>
+                <a href="mailto:yurij.webdev@gmail.com">
+                    📧Зв'язатися
+                </a>
+        </nav>
+            
+
+    </header>
+
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <h1>
+                 Ми повернемо затишок і комфорт у ваш дім🪚
+            </h1>
+
+            <p>
+                 Нам під силу і поличку прибити, і котедж звести🏠
+            </p>
+
+            <a href="#masters" class="hero-btn">
+                 Підібрати виконавця🚀
+            </a>
+
+        </section>    
+        
+
+
+
+
+        <section class="advantages-section">
+
+             <h2 class="advantages-title">
+                Чому нас обирають?
+            </h2>
+
+            <div class="advantages">
+                <div class="adv-card">
+                    <h2>🎯</h2>
+
+                    <p>
+                        Максимум інформації на одному ресурсі
+                    </p>
+            </div>   
+                
+                <div class="adv-card">
+                    <h2>🪚</h2>
+
+                    <p>
+                        Тільки перевірені майстри
+                    </p>
+                </div>
+
+                <div class="adv-card">
+                    <h2>🚀</h2>
+
+                    <p>
+                        Найповніша картотека
+                    </p>
+                </div>
+
+                <div class="adv-card">
+                    <h2>✔️</h2>
+
+                    <p>
+                        Швидкий пошук виконавця
+                    </p>
+                </div>   
+            
+            </div>
+        </section>
+
+        <section id="masters" class="masters-section">
+            <h2>Наші майстри</h2>
+
+            <div class="filters">
+                 <button onclick="filterMasters('all')">Всі</button>
+                <button onclick="filterMasters('plumber')">Сантехніки</button>
+                <button onclick="filterMasters('electrician')">Електрики</button>
+                <button onclick="filterMasters('builder')">Будівельники</button>
+                <button onclick="filterMasters('welder')">Зварювальники</button>
+                <button onclick="filterMasters('painter')">Маляри</button>
+                <button onclick="filterMasters('tiler')">Плиточники</button>
+                <button onclick="filterMasters('handyman')">Майстер на годину</button>
+                <button onclick="filterMasters('heating-instsler')">Опалення</button>
+                <button onclick="filterMasters('window-instsler')">Встановлення вікон</button>
+                <button onclick="filterMasters('door-instsler')">Встановлення дверей</button>
+                <button onclick="filterMasters('rofer')">Покрівля дахів</button>
+
+
+            </div>
+
+
+
+            <div class="master-grid">
+
+                <div  class="master-card" data-category="plumber">
+                    <h3>Іван</h3>
+                    <p>🛠️ Сантехнік</p>
+                    <p>⭐ 4.9</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="electrician">
+                    <h3>Олег</h3>
+                    <p>⚡ Електрик</p>
+                    <p>⭐ 4.8</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="builder">
+                    <h3>Андрій</h3>
+                    <p>🧱 Будівельник</p>
+                    <p>⭐ 4.7</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="welder">
+                    <h3>Олексій</h3>
+                    <p>💥 Зварювальник</p>
+                    <p>⭐ 4.7</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="handyman">
+                    <h3>Костянтин</h3>
+                    <p>💥 Майстер на годину</p>
+                    <p>⭐ 4.8</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                     </a>
+                </div>
+
+                <div  class="master-card" data-category="painter">
+                    <h3>Руслан</h3>
+                    <p>🎨 Маляр</p>
+                    <p>⭐ 4.8</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="tiler">
+                    <h3>Олександр</h3>
+                    <p>🧱 Плиточник</p>
+                    <p>⭐ 4.6</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="heating-instsler">
+                    <h3>Роман</h3>
+                    <p>🔥 Майстер з монтажу систем опалення</p>
+                    <p>⭐ 4.8</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="window-instsler">
+                    <h3>Дмитро</h3>
+                    <p>🪟 Майстер з монтажу вікон</p>
+                    <p>⭐ 4.9</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+
+                <div  class="master-card" data-category="door-instsler">
+                    <h3>Тимофій</h3>
+                    <p>🚪 Майстер з монтажу дверей</p>
+                    <p>⭐ 4.6</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+                <div  class="master-card" data-category="rofer">
+                    <h3>Антон</h3>
+                    <p>🚪 Майстер з покрівлі дахів</p>
+                    <p>⭐ 4.9</p>
+                    <a class="call-btn"
+                        href="tel:+38хххххххххх">
+                        📞Подзвонити
+                    </a>
+                </div>
+
+
+            </div>
+
+
+
+
+        </section>
+
+    </main>    
+
+
+    
+    
+    
+
+    
+
+
+
+    <button id="scrollToTopBtn" aria-label="Наверх">
+            ⬆
+        </button> <!--кнопка наверх-->
+
+
+    <footer id="contacts"> 
+        <h2>Майстри і будівельники нашого міста</h2>
+
+        <p>📞Телефон: +38 (XXX) XXX XX XX</p>
+            <p>
+             <a href="mailto:yurij.webdev@gmail.com" title="Написати нам">
+                📧E-mail
+            </a>
+            </p>
+
+            <p>📍Нікополь, Україна</p>
+
+            <p>© Майстри і будівельники нашого міста 2026</p>
+
+            <p>(навчальний проект)</p>
+
+    </footer>
+
+        <!--посилання до ява скрипта-->
+    <script src="script.js"></script> 
+
+
+        
+
+
+</body>
+</html>
