@@ -1,12 +1,10 @@
       
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
-                card.style.display =
+                const show =
                     category === "all" ||
                     card.dataset.category === category
-                        ? ""
-                        : "none";
-                        behavior: "smooth";
+                card.style.display = show ? "" : "none";
             });
         }
 
@@ -20,7 +18,7 @@
            //кнопка повернення догори    
         const btn = document.getElementById("scrollToTopBtn");       
                
-               //показуєт кнопку, коли юзер прокручує сторінку до низу
+               //показує кнопку, коли юзер прокручує сторінку до низу
         window.addEventListener("scroll", () => {
             btn.classList.toggle(
                 "show",
@@ -30,7 +28,7 @@
             
 
         
-                //прокручує сторінку плавно до самого верху при наимсканні
+                //прокручує сторінку плавно до самого верху при натисканні
         btn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
@@ -42,4 +40,5 @@
         
      
             
-            
+                  
+     
