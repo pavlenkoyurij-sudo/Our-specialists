@@ -22,7 +22,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.65);
     z-index: 1;
 }
 
@@ -39,7 +39,7 @@ body {
     padding: 12px 18px;
     border-radius: 6px;
     background: #ff6600;
-    color: black;
+    color: white;
     text-decoration: none;
 
     transition: 0.3s;
@@ -50,6 +50,17 @@ body {
     background: #e65c00;
     transform: translateY(-2px);
 }
+
+    /*заголовок хіро*/
+.hero h1 {
+    font-size: 48px;
+}
+
+    /*підзаголовок*/
+.hero p {
+    font-size: 22px;
+}
+
 
 
 .advantages-title {
@@ -85,6 +96,7 @@ body {
 
     /*===ФУТЕР===*/
 footer {
+    font-size: 18px;
     background: #1c1c1c;
     color: white;
     text-align: center;
@@ -103,7 +115,6 @@ footer {
     background: #ff6600;
     color: white;
     cursor: pointer;
-    display: none;
 
     opacity: 0;
     visibility: hidden;
@@ -120,26 +131,26 @@ footer {
 }
 
     /*секція майстрів*/
-    .masters-section {
-        padding: 60px 20px;
-        text-align: center;
-    }
+.masters-section {
+    padding: 60px 20px;
+    text-align: center;
+}
 
-    .masters-section h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
+.masters-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
         /*кнопки фільтрів*/
-    .filters button {
-        border: none;
-        border-radius: 5px;
-        background: #ff6600;
-        color: black;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-        margin-bottom: 20px;
-    }
+.filters button {
+    border: none;
+    border-radius: 5px;
+    background: #ff6600;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
 
     .filters button:hover {
         background: #e65c00;
@@ -164,6 +175,7 @@ footer {
 
         /*картки майстрів*/
     .master-card {
+        font-size: 18px;
         background: white;
         padding: 20px;
         border-radius: 12px;
@@ -202,26 +214,13 @@ footer {
         text-decoration: none;
         transition: 0.3s;
     }
-    .call-btn {
+    .call-btn:hover {
         background: #e65c00;
     }
 
+    .master-card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+    }
+
         
-
-            
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
