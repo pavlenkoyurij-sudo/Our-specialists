@@ -49,6 +49,8 @@
                  Підібрати виконавця🚀
             </a>
 
+            
+
         </section>    
         
 
@@ -100,6 +102,18 @@
         <section id="masters" class="masters-section">
             <h2>Наші спеціалісти</h2>
 
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎Пошук спеціаліста..."
+                onkeyup="searchMaster()"
+                />
+
+
+
+
+
+
             <div class="filters">
                  <button onclick="filterMasters('all')">Всі</button>
                 <button onclick="filterMasters('plumber')">Сантехніки</button>
@@ -113,135 +127,16 @@
                 <button onclick="filterMasters('window-installer')">Встановлення вікон</button>
                 <button onclick="filterMasters('door-installer')">Встановлення дверей</button>
                 <button onclick="filterMasters('stretch-ceilings')">Натяжна стеля</button>
-                <button onclick="filterMasters('interior-finisher')">Внутрішнє оздоблення'</button>
+                <button onclick="filterMasters('interior-finisher')">Внутрішнє оздоблення</button>
 
 
             </div>
 
 
-
-            <div class="master-grid">
-
-                <div  class="master-card" data-category="plumber">
-                    <h3>Володя</h3>
-                    <p>🛠️ Сантехнік</p>
-                    <p>⭐ 4.9</p>
-                    <a class="call-btn"
-                        href="tel:+380508434698">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="electrician">
-                    <h3>Олексій</h3>
-                    <p>⚡ Електрик</p>
-                    <p>⭐ 4.8</p>
-                    <a class="call-btn"
-                        href="tel:+380956617006">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="builder">
-                    <h3>Володимир</h3>
-                    <p>🧱 Будівельник</p>
-                    <p>⭐ 4.9</p>
-                    <a class="call-btn"
-                        href="tel:+380964851722">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="welder">
-                    <h3>Володимир</h3>
-                    <p>💥 Зварювальник</p>
-                    <p>⭐ 4.7</p>
-                    <a class="call-btn"
-                        href="tel:+380508434698">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="handyman">
-                    <h3>Станіслав</h3>
-                    <p>🛠️ Майстер на годину</p>
-                    <p>⭐ 4.8</p>
-                    <a class="call-btn"
-                        href="tel:+380976944195">
-                        📞Подзвонити
-                     </a>
-                </div>
-
-                <div  class="master-card" data-category="painter">
-                    <h3>Євгеній</h3>
-                    <p>🎨 Маляр</p>
-                    <p>⭐ 4.8</p>
-                    <a class="call-btn"
-                        href="tel:+380972859328">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="tiler">
-                    <h3>Володимир</h3>
-                    <p>🧱 Плиточник</p>
-                    <p>⭐ 4.7</p>
-                    <a class="call-btn"
-                        href="tel:+380508434698">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="heating-installer">
-                    <h3>Володя</h3>
-                    <p>🔥 Майстер з монтажу систем опалення</p>
-                    <p>⭐ 4.8</p>
-                    <a class="call-btn"
-                        href="tel:+380964851722">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="window-installer">
-                    <h3>Володимир</h3>
-                    <p>🪟 Майстер з монтажу вікон</p>
-                    <p>⭐ 4.9</p>
-                    <a class="call-btn"
-                        href="tel:+380508434698">
-                        📞Подзвонити
-                    </a>
-                </div>
+            <div class="master-grid" id="masterGrid"></div>
 
 
-                <div  class="master-card" data-category="door-installer">
-                    <h3>Станіслав</h3>
-                    <p>🚪 Майстер з монтажу дверей</p>
-                    <p>⭐ 4.9</p>
-                    <a class="call-btn"
-                        href="tel:+380976944195">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="stretch-ceilings">
-                    <h3>Влад</h3>
-                    <p>🎨 Натяжна стеля</p>
-                    <p>⭐ 4.9</p>
-                    <a class="call-btn"
-                        href="tel:+380687611313">
-                        📞Подзвонити
-                    </a>
-                </div>
-
-                <div  class="master-card" data-category="interior-finisher">
-                    <h3>Женя</h3>
-                    <p>🎨 Майстер з внутрішнього оздоблення</p>
-                    <p>⭐ 4.8</p>
-                    <a class="call-btn"
-                        href="tel:+380972859328">
-                        📞Подзвонити
-                    </a>
-                </div>
+        
 
 
 
