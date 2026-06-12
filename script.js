@@ -1,5 +1,3 @@
-
-     
       
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
@@ -17,96 +15,135 @@
                 profession: "Сантехнік",
                 category: "plumber",
                 rating: 4.9,
-                phone: "+380508434698",
-                photo: "images/plumber.jpeg"
+                reviews: 8,
+                experience: 12,
+                city: "Покров",
+                phone: "+380508434698"
             },
-            {
+
+
+           {
                 name: "Олексій",
                 profession: "Електрик",
                 category: "electrician",
                 rating: 4.8,
-                phone: "+380956617006",
-                photo: "images/electrician.jpeg"
+                reviews: 9,
+                experience: 10,
+                city: "Покров",
+                phone: "+380956617006"
+
             },
+
             {
                 name: "Володимир",
                 profession: "Будівельник",
                 category: "builder",
                 rating: 4.9,
-                phone: "+380964851722",
-                photo: "images/builder.jpeg"
+                reviews: 12,
+                experience: 11,
+                city: "Покров",
+                phone: "+380964851722"
             },
-             {
+
+
+            {
                 name: "Володимир",
                 profession: "Зварювальник",
                 category: "welder",
                 rating: 4.7,
-                phone: "+380508434698",
-                photo: "images/welder.jpeg"
+                reviews: 8,
+                experience: 8,
+                city: "Покров",
+                phone: "+380508434698"
             },
+
             {
                 name: "Станіcлав",
                 profession: "Майстер на годину",
                 category: "handyman",
                 rating: 4.8,
-                phone: "+380976944195",
-                photo: "images/handyman.jpeg"
-            },
+                reviews: 13,
+                experience: 7,
+                city: "Покров",
+                phone: "+380976944195"
+           },
+
+           
             {
                 name: "Євгеній",
                 profession: "Маляр",
                 category: "painter",
                 rating: 4.8,
-                phone: "+380972859328",
-                photo: "images/painter.jpeg"
+                reviews: 16,
+                experience: 7,
+                city: "Покров",
+                phone: "+380972859328"
             },
+
              {
                 name: "Володимир",
                 profession: "Плиточник",
                 category: "tiler",
                 rating: 4.7,
-                phone: "+380508434698",
-                photo: "images/tiler.jpeg"
+                reviews: 9,
+                experience: 11,
+                city: "Покров",
+                phone: "+380508434698"
             },
+
             {
                 name: "Володя",
                 profession: "Майстер з монтажу систем опалення",
                 category: "heating-installer",
                 rating: 4.8,
-                phone: "+380964851722",
-                photo: "images/heating-installer.jpeg"
+                reviews: 17,
+                experience: 7,
+                city: "Покров",
+                phone: "+380964851722"
             },
+
             {
                 name: "Володимир",
                 profession: "Майстер з монтажу вікон",
                 category: "window-installer",
                 rating: 4.9,
-                phone: "+380508434698",
-                photo: "images/window-installer.jpeg"
+                reviews: 6,
+                experience: 10,
+                city: "Покров",
+                phone: "+380508434698"
             },
+
              {
                 name: "Станіслав",
                 profession: "Майстер з монтажу дверей",
                 category: "door-installer",
                 rating: 5.0,
-                phone: "+380976944195",
-                photo: "images/door-installer.jpeg"
+                reviews: 19,
+                experience: 14,
+                city: "Покров",
+                phone: "+380976944195"
             },
+
             {
                 name: "Влад",
                 profession: "Натяжна стеля",
                 category: "stretch-ceilings",
                 rating: 4.9,
-                phone: "+380687611313",
-                photo: "images/stretch-ceilings.jpeg"
+                reviews: 11,
+                experience: 7,
+                city: "Покров",
+                phone: "+380687611313"
             },
+
             {
                 name: "Женя",
                 profession: "Майстер з внутрішнього оздоблення",
                 category: "interior-finisher",
                 rating: 4.8,
-                phone: "+380972859328",
-                photo: "images/interior-finisher.jpeg"
+                reviews: 9,
+                experience: 11,
+                city: "Покров",
+                phone: "+380972859328"
             },
         ];
 
@@ -119,9 +156,11 @@
                     data-category="${master.category}">
                         <img src="${master.photo}" alt="${master.name}" onerror="this.onerror=null; this.src='images/default.jpeg';">
                         <h3>${master.name}</h3>
-                        <p>${master.profession}</p>
-                        <p class="rating">⭐${master.rating}</p>
-
+                        <p>🛠️${master.profession}</p>
+                        <p>⭐${master.rating} (${master.reviews} відгуків)</p>
+                        <p>🛠️${master.experience} років досвіду</p>
+                        <p>📍${master.city}</p>
+                        
                         <a class="call-btn"
                         href="tel:${master.phone}">
                             📞Подзвонити
@@ -129,6 +168,8 @@
                     </div>
             `; 
         });
+            //Функція сортування майстрів по рейтингу
+        mastre.sort((a, b) => b.rating - a.rating);
 
 
 
