@@ -1,5 +1,4 @@
 
-        
 
 body {
     background-image: url("background-image.jpeg");
@@ -263,6 +262,42 @@ footer {
         box-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
 
+    
+         /*кнопка додатипайстра*/
+    .join-section {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .add-master-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 24px;
+        border-radius: 8px;
+        background: #ff6600;
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        transition: 0.3s;
+    }
+
+    .add-master-btn:hover {
+        background: #e65c00;
+        transform: translateY(-2px);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .join-list {
+        display: inline-block;
+        text-align: left;
+        line-height: 1.8;
+    }
+
         
 
             
@@ -270,14 +305,6 @@ footer {
 
 
         
-
-
-
-
-
-
-
-
 
 
 
