@@ -1,4 +1,4 @@
-        
+
 
 body {
     background-image: url("background-image.jpeg");
@@ -271,31 +271,50 @@ footer {
         box-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
 
-    
-         /*кнопка додатипайстра*/
+
     .join-section {
-        text-align: center;
         padding: 60px 20px;
-        font-size: 28px;
+        text-align: center;
+        font-size: 22px;
         font-weight: bold;
     }
 
+    
+         /*кнопка додатипайстра*/
     .add-master-btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
         margin-top: 20px;
         padding: 14px 24px;
         border-radius: 8px;
-        background: #ff6600;
         color: white;
         text-decoration: none;
         font-size: 22px;
+        font-weight: bold;
         transition: 0.3s;
     }
 
-    .add-master-btn:hover {
-        background: #e65c00;
-        transform: translateY(-2px);
+    .whatsapp-btn {
+        background: #25d366;
     }
+
+    .whatsapp-btn:hover {
+        background: #20ba56;
+    }
+
+    .viber-btn {
+        background-color: #665cac; 
+    }
+
+    .viber-btn:hover {
+        background-color: #5a5290;
+    }
+
+
+
+
 
     ul {
         list-style-type: none;
@@ -340,8 +359,6 @@ footer {
     }
 
         
-
-            
 
 
 
