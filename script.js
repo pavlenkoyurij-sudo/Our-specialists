@@ -169,7 +169,7 @@
             `; 
         });
             //Функція сортування майстрів по рейтингу
-        mastre.sort((a, b) => b.rating - a.rating);
+        masters.sort((a, b) => b.rating - a.rating);
 
 
 
