@@ -158,7 +158,7 @@
                         <h3>${master.name}</h3>
                         <p>🛠️${master.profession}</p>
                         <p>⭐${master.rating} (${master.reviews} відгуків)</p>
-                        <p>🛠️${master.experience} років досвіду</p>
+                        <p>🏆${master.experience} років досвіду</p>
                         <p>📍${master.city}</p>
                         
                         <a class="call-btn"
