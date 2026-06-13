@@ -1,4 +1,5 @@
-      
+
+          
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
                 const show =
@@ -147,6 +148,15 @@
             },
         ];
 
+         //Функція сортування майстрів по рейтингу
+        masters.sort((a, b) => b.rating - a.rating);
+
+        //місцеве сховище дл фаворитів
+        let favorites = JSON.parse(
+            localStorage.getItem("favorites")
+        ) || [];
+        
+
         const masterGrid = document.getElementById("masterGrid");
 
         masters.forEach(master => {
@@ -165,11 +175,60 @@
                         href="tel:${master.phone}">
                             📞Подзвонити
                         </a>
-                    </div>
+                        <button
+                            class="favorite-btn"
+                            onclick="toggleFavorite('${master.phone}')">
+                            ⭐ В обране
+                        </button>
+                    
+
+                        
+                </div>
             `; 
         });
-            //Функція сортування майстрів по рейтингу
-        masters.sort((a, b) => b.rating - a.rating);
+
+        renderFavorites();
+        
+
+                //Функція додавання та видалення майстрів з фаворитів
+        function toggleFavorite(masterPhone) {
+            if (favorites.includes(masterPhone)) {
+                favorites = favorites.filter(
+                item => item !== masterPhone
+            );
+            } else {
+                favorites.push(masterPhone);
+            }
+            localStorage.setItem(
+                "favorites",
+                JSON.stringify(favorites)
+            );
+            renderFavorites();
+        }
+
+
+        function renderFavorites() {
+
+            document
+                .querySelectorAll(".favorite-btn")
+                .forEach(btn => {
+                    const phone = 
+                        btn.getAttribute("onclick")
+                            .match(/'([^']+)'/)[1];
+
+                    if (favorites.includes(phone)) {
+
+                        btn.textContent = "❤️ В обраному";
+                        btn.classList.add("active");
+
+                    } else {
+                        btn.textContent = "⭐ В обране";
+                        btn.classList.remove("active");
+                    }
+                });
+        }
+                                
+                                           
 
 
 
@@ -223,9 +282,13 @@
                 behavior: "smooth"//забезпечує плавний скролінг
             });
         });
+
+    
         
         
         
      
+            
+             
             
             
