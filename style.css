@@ -1,4 +1,4 @@
-
+        
 
 body {
     background-image: url("background-image.jpeg");
@@ -61,6 +61,13 @@ body {
 .hero p {
     font-size: 22px;
 }
+
+button:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+
 
 
 
@@ -302,8 +309,43 @@ footer {
         line-height: 1.8;
     }
 
+        /*кнопка фаворитів - в обраному стані*/
+    .favorite-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+        /*кнопка фаворитів - не в обраному стані*/
+    .favorite-btn {
+        background: #444;
+        color: white;
+    }
+
+    .favorite-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+
+        /*поведінка кнопки при наведені курсору : кнопка фаворитів - в обраному стані*/
+    .favorite-btn.active {
+        background: #0a5dbb;
+        color: white;
+    }
+
         
 
+            
+
+
+
+        
             
 
 
