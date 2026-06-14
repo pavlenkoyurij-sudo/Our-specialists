@@ -64,7 +64,7 @@
                 category: "handyman",
                 rating: 4.8,
                 reviews: 13,
-                experience: 7,
+                experience: 21,
                 city: "Покров",
                 phone: "+380976944195"
            },
@@ -120,7 +120,7 @@
                 category: "door-installer",
                 rating: 5.0,
                 reviews: 19,
-                experience: 14,
+                experience: 21,
                 city: "Покров",
                 phone: "+380976944195"
             },
