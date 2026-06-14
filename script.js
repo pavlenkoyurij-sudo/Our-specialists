@@ -1,5 +1,4 @@
-
-          
+      
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
                 const show =
@@ -159,35 +158,62 @@
 
         const masterGrid = document.getElementById("masterGrid");
 
-        masters.forEach(master => {
+        function renderMasters() {
 
-            masterGrid.innerHTML += `
-                <div class="master-card"
-                    data-category="${master.category}">
-                        <img src="${master.photo}" alt="${master.name}" onerror="this.onerror=null; this.src='images/default.jpeg';">
+            masterGrid.innerHTML = "";
+
+            masters.forEach(master => {
+
+                masterGrid.innerHTML += `
+                    <div class="master-card"
+                        data-category="${master.category}">
+
+                        <img src="${master.photo}"
+                            alt="${master.name}"
+                            onerror="this.onerror=null; this.src='images/default.jpeg';"> 
+                            
                         <h3>${master.name}</h3>
+
                         <p>🛠️${master.profession}</p>
-                        <p>⭐${master.rating} (${master.reviews} відгуків)</p>
-                        <p>🏆${master.experience} років досвіду</p>
+
+                        <p>⭐${master.rating}
+                        (${master.reviews} відгуків)
+                        </p>
+
+                        <p>
+                            🏆${master.experience} років досвіду
+                        </p>
+
                         <p>📍${master.city}</p>
-                        
+                            
                         <a class="call-btn"
-                        href="tel:${master.phone}">
+                            href="tel:${master.phone}">
                             📞Подзвонити
                         </a>
+
                         <button
                             class="favorite-btn"
+                            data-phone="${master.phone}"
                             onclick="toggleFavorite('${master.phone}')">
                             ⭐ В обране
+
                         </button>
-                    
-
                         
-                </div>
-            `; 
-        });
 
-        renderFavorites();
+                            
+                    </div>
+                `; 
+            });
+
+            renderFavorites();
+        }
+        //onerror="this.onerror=null; this.src='images/default.jpeg';" - це атрибут зображення, який забезпечує заміну зображення на "images/default.jpeg" у випадку помилки завантаження (наприклад, якщо вказане зображення не існує або недоступне). Це дозволяє уникнути відображення порожнього місця або помилки замість зображення майстра.
+
+
+
+
+        renderMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
+        
         
 
                 //Функція додавання та видалення майстрів з фаворитів
@@ -212,9 +238,7 @@
             document
                 .querySelectorAll(".favorite-btn")
                 .forEach(btn => {
-                    const phone = 
-                        btn.getAttribute("onclick")
-                            .match(/'([^']+)'/)[1];
+                    const phone = btn.dataset.phone;
 
                     if (favorites.includes(phone)) {
 
@@ -288,7 +312,5 @@
         
         
      
-            
-             
             
             
