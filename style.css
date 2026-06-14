@@ -1,6 +1,4 @@
 
-
-        
 body {
     background-image: url("background-image.jpeg");
     background-size: cover;/*розтягуємо картинку на весь екран*/
@@ -355,7 +353,7 @@ footer {
 
         /*поведінка кнопки при наведені курсору : кнопка фаворитів - в обраному стані*/
     .favorite-btn.active {
-        background: #0a5dbb;
+        background: ff6600;
         color: white;
     }
 
@@ -387,22 +385,14 @@ footer {
 
     .partners-container {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 30px;
     }
 
     .partner-card {
-        background: rgba(255,255,255,0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.3);
-
-        border-radius: 12px;
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
         overflow: hidden;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: 100%;
     }
 
 
@@ -411,8 +401,7 @@ footer {
     .partner-card img {
         display: block;
         width: 100%;
-     height: auto;
-        object-fit: cover;
+        border-radius: 15px;
     }
 
     /* Ефект при наведенні мишкою */
@@ -420,6 +409,35 @@ footer {
         transform: translateY(-5px); /* Картка акуратно піднімається вгору */
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
     }
+
+
+    .partner-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+        
+  
+
+        /* Ефект при наведенні */
+    .partner-btn:hover {
+        background-color: #e65c00; 
+        transform: translateX(-50%) scale(1.05); 
+    }
+
 
 
 
