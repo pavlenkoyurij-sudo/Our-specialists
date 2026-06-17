@@ -458,6 +458,98 @@ footer {
     }
 
 
+    /*--- стилі блоку відгуків ---*/
+
+         /*--- головна секція: центруємо тект, додаємо відступи ---*/
+    .reviews-section {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+
+    }
+
+        /*---  ---*/
+    .reviews-subtitle {
+        color: #141313;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+        /*---  ---*/
+    .reviews-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto 40px;
+    }
+
+      /*---  ---*/
+    .review-card {
+        background-color: #f9f9f9;
+        border-radius: 16px;
+        padding: 20px;
+        width: 100%;
+        max-width: 450px;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .review-heder {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+
+    .review-autor {
+        color: #334;
+        font-size: 16px;
+    }
+
+
+    .review-stars {
+        color: #ffcc00;
+        font-size: 14px;
+    }
+
+    .review-data {
+        color: #998;
+        font-size: 12px;
+        align-self: flex-end;
+    }
+
+    .leave-review-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        background-color: #25d366;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(102, 116, 107, 0.3);
+        transition: all 0.2s ease;
+    }
+
+    .leave-review-btn:hover {
+        background-color: #20ba5a;
+        transform: rotateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 116, 107, 0.4);
+    }
+
+    .leave-review-btn:active {
+        transform: rotateY(0);        
+    }
+
+
+
 
 
 
