@@ -1,0 +1,171 @@
+
+            
+    body {
+        background-image: url("background-image1.jpeg");
+        background-size: cover;/*розтягуємо картинку на весь екран*/
+        background-position: center;/*центруємо картинку по вертикалі і горизонталі*/
+        background-attachment: fixed;/*фіксуємо артинку на місці, щоб не рухався зі скроломк*/
+        background-color: #2c2c2c;/*фон бекграунду поки завантажується картинка*/
+        margin: 0;/*занулюємо стандартні відступик*/
+        padding: 0;/*занулюємо стандартні відступик*/
+
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin: 20px;
+        color: #ff6600;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+
+    h1, h2, p, ul {
+      
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 15px 25px;
+        border-radius: 12px;
+
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+    } 
+
+    ul {
+        list-style-type: none;
+        text-align: left;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .blog-articles-section {
+        background: none;
+        box-shadow: none;
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .articles-grid {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .article-card {
+        background-color: rgba(255,255,255,0.98);
+        padding: 25px;
+        border-radius: 16px;
+        text-align: left;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        max-width: 500px;
+        border-top: 4px solid #ff6600;
+    }
+
+    .article-badge {
+        background-color: #fcece2;
+        color: #ff6600;
+        padding: 5px 10px;
+        display: inline-block;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .article-card h3 {
+        margin: 0 0 12 px 0;
+        font-size: 20px;
+        color: #222;
+        line-height: 1.4;
+    }
+
+    .article-card p {
+        background: none;
+        padding: 0;
+        box-shadow: none;
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .read-article-btn {
+        display: inline-block;
+        color: #ff6600;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    .read-article-btn:hover {
+        transform: translateX(5px);
+    }
+
+
+
+
+
+
+  
+
+    .join-section {
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+        max-width: 800px;
+        margin: 40px auto;
+
+        padding: 40px 20px;
+        border-radius: 16px;
+    }
+
+
+    /*кнопка додати тему*/
+    .join-section-btn {
+  
+        display: inline-block;
+        padding: 14px 28px;
+        background-color: #25d366;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;/*--- прибираєма стандартне підкреслення посилання ---*/
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(102, 116, 107, 0.3);/*--- тінь кнопки ---*/
+        transition: all 0.2s ease;
+    }
+
+    .join-section-btn:hover {
+        background-color: #20ba5a;
+        transform: rotateY(-2px);
+        box-shadow: 0 6px 20px rgba(48, 53, 49, 0.4);/*--- тінь стає глибшою ---*/
+    }
+
+        /*--- ефект при кліку ---*/
+    .join-section-btn:active {
+        transform: translateY(-2px);        
+    }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
