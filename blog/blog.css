@@ -154,6 +154,11 @@
         transform: translateY(-2px);        
     }
 
+/*--- плавний перехід від чторінки до сторінки ---*/
+    html {
+        scroll-behavior: smooth;
+    }
+
 
 
         
