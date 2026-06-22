@@ -1,4 +1,5 @@
 
+
             
     body {
         background-image: url("background-image1.jpeg");
@@ -56,8 +57,9 @@
 
     .articles-grid {
         display: flex;
-        justify-content: center;
-        gap: 20px;
+        flex-wrap: wrap;
+        align-items: stretch;/*вирівнює картки по висоті*/
+        gap: 20px;/*відстань між картками*/
     }
 
     .article-card {
@@ -68,6 +70,11 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         max-width: 500px;
         border-top: 4px solid #ff6600;
+
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex: 1 1 280px;
     }
 
     .article-badge {
@@ -86,6 +93,8 @@
         font-size: 20px;
         color: #222;
         line-height: 1.4;
+
+        
     }
 
     .article-card p {
@@ -95,7 +104,9 @@
         font-size: 15px;
         color: #555;
         line-height: 1.6;
-        margin-bottom: 20px;
+        margin-bottom: 20px;/*щоб текст не липнув до стінок кнопки*/
+        flex-grow: 1;
+
     }
 
     .read-article-btn {
@@ -155,7 +166,7 @@
     }
 
 
-
+    /*блок кнопки повернення до головної сторінки*/
     .blog-footer-cta {
         text-align: center;
         margin: 50px auto 30px auto;
@@ -175,6 +186,7 @@
         margin-bottom: 20px;
     }
 
+    /*кнопка повернення на головну сторінку*/
     .main-catalog-btn {
         display: inline-block;
         margin-top: 10px;
@@ -189,7 +201,8 @@
         background: #e65c00;
         transform: translateY(-2px);
     }
-/*верхня кнопка - НА ГОЛОВНУ*/
+
+    /*верхня кнопка - НА ГОЛОВНУ*/
     .back-to-home-btn {
         display: inline-block;
         margin: 15px 0 5px 15px;
@@ -213,12 +226,6 @@
         box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
         transform: translateY(-2px);
     }
-
-
-        
-
-
-
 
 
 
