@@ -167,6 +167,41 @@
         transform: translateY(-2px);
     }
 
+/*--- стилі картки таблиці  до картки кабелів ---*/
+    .article-table-card {
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+        max-width: 750px;
+        margin: 40px auto;
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);/*м'яка тінь тінь додасть об'му*/
+    }
+
+    .article-table-card p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #333;
+    }
+    .table-container {
+        width: 100%;
+        overflow: auto;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center; /*центрує таблицю на великих екранах*/
+    }
+    
+    .cable-table {
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: left;
+    }
+
 
     
 
