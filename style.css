@@ -200,6 +200,15 @@ footer {
         border-radius: 10px;
     }
 
+    .master-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #555;
+        font-size: 0.9rem;
+    }
+
 
 
     .master-card:hover {
