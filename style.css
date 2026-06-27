@@ -642,6 +642,23 @@ footer {
         scroll-behavior: smooth;
     }
 
+.premium-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #f7c948, #ff9800);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .premium-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }   
+
 
 
 
