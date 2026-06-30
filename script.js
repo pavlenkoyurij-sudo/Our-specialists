@@ -1,3 +1,4 @@
+
       
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
@@ -231,8 +232,8 @@
 
                         <button
                             class="favorite-btn"
-                            data-phone="${master.phone}"
-                            onclick="toggleFavorite('${master.phone}')">
+                            data-id="${master.id}"
+                            onclick="toggleFavorite(${master.id})">
                             ⭐ В обране
 
                         </button>
@@ -263,13 +264,13 @@
         
 
                 //Функція додавання та видалення майстрів з фаворитів
-        function toggleFavorite(masterPhone) {
-            if (favorites.includes(masterPhone)) {
+        function toggleFavorite(masterId) {
+            if (favorites.includes(masterId)) {
                 favorites = favorites.filter(
-                item => item !== masterPhone
+                item => item !== masterId
             );
             } else {
-                favorites.push(masterPhone);
+                favorites.push(masterId);
             }
             localStorage.setItem(
                 "favorites",
@@ -284,9 +285,9 @@
             document
                 .querySelectorAll(".favorite-btn")
                 .forEach(btn => {
-                    const phone = btn.dataset.phone;
-
-                    if (favorites.includes(phone)) {
+                    const id = Number(btn.dataset.id);
+                            // ПЕРЕТВОРЮЄМО РЯДРК З ДАТАСЕТ В ЧИСЛО
+                    if (favorites.includes(id)) {
 
                         btn.textContent = "❤️ В обраному";
                         btn.classList.add("active");
@@ -353,6 +354,8 @@
             });
         });
 
+    
+        
      
             
      
