@@ -657,7 +657,107 @@ footer {
     .premium-btn:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }   
+    }
+
+    /* Базові налаштування для шапки */
+    header {
+        display: flex;
+        justify-content: space-between; /* Розносить заголовок вліво, меню вправо */
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky; /* Шапка плавно залишається вгорі при скролі */
+        top: 0;
+        z-index: 1000;
+        
+        /* М'який ефект скла, який не перетягує увагу */
+        background: rgba(255, 255, 255, 0.85); 
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        
+        /* Тонка акуратна лінія знизу замість грубої тіні */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+        transition: all 0.3s ease;
+    }
+    
+    /* Назва сайту в шапці */
+    header h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #2c3e50; /* Спокійний темно-синій/сірий колір замість чисто чорного */
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Контейнер для посилань */
+    header nav {
+        display: flex;
+        gap: 20px; /* Відступи між посиланнями, щоб код дихав */
+        align-items: center;
+    }
+    
+    /* Стилі для звичайних посилань */
+    header nav a {
+        text-decoration: none;
+        color: #555; /* М'який колір для другорядних елементів */
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+    }
+    
+    /* Ефект наведення на звичайні посилання */
+    header nav a:hover {
+        color: #2c3e50;
+        background: rgba(0, 0, 0, 0.04); /* Легке підсвічування фону */
+    }
+    
+    /* Хак для важливих кнопок: виділяємо "Нікополь" та "Зв'язатися" */
+    /* Посилання на Нікополь робимо трохи акцентним, але спокійним */
+    header nav a[href*="nikopol"] {
+        background: rgba(243, 156, 18, 0.1); /* Легкий натяк на твій фірмовий теплий колір */
+        color: #e67e22;
+        font-weight: 600;
+    }
+    
+    header nav a[href*="nikopol"]:hover {
+        background: rgba(243, 156, 18, 0.18);
+        color: #d35400;
+    }
+    
+    /* Кнопка "Зв'язатися" (mailto) — робимо акуратною контурною кнопочкою */
+    header nav a[href^="mailto:"] {
+        border: 1px solid #f39c12;
+        color: #f39c12;
+        font-weight: 600;
+    }
+    
+    header nav a[href^="mailto:"]:hover {
+        background: #f39c12;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
+    }
+    
+    /* Адаптивність: якщо екран маленький (телефон), переносимо меню під заголовок */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            gap: 12px;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        
+        header nav {
+            flex-wrap: wrap; /* Дозволяє посиланням переноситися на новий рядок на смартфонах */
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        header nav a {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+        }
+    }
 
 
 
