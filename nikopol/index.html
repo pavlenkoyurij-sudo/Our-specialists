@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+        <!--СЕО ОПИС - МЕГА ВАЖЛИВО-->
+    <meta name="description"
+    content="Каталог майстрів та будівельників вашого міста. Сантехніки, електрики, будівельники, зварювальники та інші спеціалісти.">
+    
+    <title>Майстри та будівельники Нікополя | Каталог спеціалістів</title>
+
+    <!--відсилка до стилів-->
+    <link rel="stylesheet" href="../style.css">
+    
+    <link rel="icon" type="image/png"href="images/favicon.png">
+
+
+</head>
+
+
+
+
+<body>
+
+    <header>
+        <h2>Майстри та будівельники Нікополя</h2>
+        <nav>
+                <a href="#home">Головна</a>
+                <a href="#masters">Наші майстри</a>
+                <a href="#contacts">Контакти</a>
+                <a href="../index.html">🔨До каталогу Покрова</a>
+                <a href="../blog/index.html">🔨Наш блог</a>
+                <a href="mailto:yurij.webdev@gmail.com">
+                    📧Зв'язатися
+                </a>
+        </nav>
+            
+
+    </header>
+
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <h1>
+                 Ми повернемо затишок і комфорт у ваш дім🪚
+            </h1>
+
+            <p>
+                 Нам під силу і поличку прибити, і котедж звести🏠
+            </p>
+
+            <a href="#masters" class="hero-btn">
+                 Підібрати виконавця🚀
+            </a>
+
+            
+
+        </section>    
+        
+
+
+
+
+        <section class="advantages-section">
+
+             <h2 class="advantages-title">
+                Чому нас обирають?
+            </h2>
+
+            <div class="advantages">
+                <div class="adv-card">
+                    <div class="adv-icon">🎯</div>
+
+                    <p>
+                        Максимум інформації на одному ресурсі
+                    </p>
+            </div>   
+                
+                <div class="adv-card">
+                    <div class="adv-icon">🪚</div>
+
+                    <p>
+                        Тільки перевірені майстри
+                    </p>
+                </div>
+
+                <div class="adv-card">
+                    <div class="adv-icon">🚀</div>
+
+                    <p>
+                        Найповніша картотека
+                    </p>
+                </div>
+
+                <div class="adv-card">
+                    <div class="adv-icon">✔️</div>
+
+                    <p>
+                        Швидкий пошук виконавця
+                    </p>
+                </div>   
+            
+            </div>
+        </section>
+
+        <section id="masters" class="masters-section">
+            <h2>Наші спеціалісти</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎Пошук спеціаліста..."
+                onkeyup="searchMaster()"
+                />
+
+
+
+
+
+
+            <div class="filters">
+                 <button onclick="filterMasters('all')">Всі</button>
+                <button onclick="filterMasters('plumber')">Сантехніки</button>
+                <button onclick="filterMasters('electrician')">Електрики</button>
+                <button onclick="filterMasters('builder')">Будівельники</button>
+                <button onclick="filterMasters('welder')">Зварювальники</button>
+                <button onclick="filterMasters('painter')">Маляри</button>
+                <button onclick="filterMasters('tiler')">Плиточники</button>
+                <button onclick="filterMasters('handyman')">Майстер на годину</button>
+                <button onclick="filterMasters('heating-installer')">Опалення</button>
+                <button onclick="filterMasters('window-installer')">Встановлення вікон</button>
+                <button onclick="filterMasters('door-installer')">Встановлення дверей</button>
+                <button onclick="filterMasters('stretch-ceilings')">Натяжна стеля</button>
+                <button onclick="filterMasters('interior-finisher')">Внутрішнє оздоблення</button>
+
+
+            </div>
+
+
+            <div class="master-grid" id="masterGrid"></div> <!--відсилка до масиву майстрів в ява скрипт-->
+
+
+        
+
+
+
+
+
+
+
+        </section>
+
+        <section class="seo-text">
+            <h2>
+                Послуги майстрів у Нікополі
+            </h2>
+
+            <p>
+                На нашому сайті ви можете знайти спеціалістів різних напрямків:
+        сантехніків, електриків, будівельників, зварювальників,
+        плиточників та майстрів на годину у Нікополі.
+        Ми поступово поповнюємо каталог новими перевіреними спеціалістами.
+            </p>
+            <p>
+
+        Зручний пошук допоможе знайти потрібні послуги за запитами:
+        сантехник, электрик, сварщик,
+        плиточник, мастер на час. Наш довідник допомагає швидко знайти потрібні контакти і зв'язатися з майстром без посередників.
+         Ми прагнемо зробити пошук спеціалістів у Нікополі максимально простим і зручним для вас.
+            </p>
+        </section>
+
+
+
+        <section class="partners-section">
+            <h2 class="partners-title">
+                🤝Перевірені постачальники будматеріалів у Нікополі
+            </h2>
+
+            <div class="partners-container">
+                        <!--картку добавлено -->
+                <div class="partner-card">
+                    <!--Місце для банера партнера-->
+
+                    <a>
+                        <!--Місце телефону партнера-->
+                    </a>
+
+
+
+                </div>
+
+                
+            </div>
+        </section>
+
+
+        <section class="reviews-section">
+            <h2>💬 Відгуки наших містян</h2>
+            <p class="reviews-subtitle">
+                Ми публікуємо лише перевірені відгуки, які надходять від наших реальних користувачів.
+            </p>
+
+            <div class="reviews-container">
+
+                <div class="review-card">
+                    <!--Місце для коментарю користувача-->
+                </div>
+
+                <div class="review-card">
+                    <!--Місце для коментарю користувача-->
+
+                </div>
+            </div>
+            <div class="review-action">
+                <a href="https://wa.me/380957996024?text=%D0%94%D0%BE%D0%B1%D1%80%D0%B8%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BB%D0%B8%D1%88%D0%B8%D1%82%D0%B8%20%D0%B2%D1%96%D0%B4%D0%B3%D1%83%D0%BA."
+                class="leave-review-btn">
+                ✍️ Залишити відгук через WhatsApp
+                </a>
+            </div>
+
+        </section>
+
+
+        <!---інформаційна картка блогу--->
+        <section class="blog-promo-section">
+            <div class="blog-promo-card">
+                <div class="blog-promo-content">
+                    <span class="blog-badge">🗨️ НАШ БЛОГ</span>
+                    <h2>Будівельний блог майстрів та будівельників нашого міста: поради від майстрів🛠️</h2>
+                    <p>
+                        Не знаєте, як правильно вибрати вхідні двері, як проконтролювати ремонт чи який клей підійде для плитки? Читайте чесні огляди, лайхаки від реальних спеціалістів.
+                    </p>
+                    <a href="../blog/index.html" class="blog-promo-btn">📖 Читати корисні статті</a>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section class="join-section">
+            <h2>Ви спеціаліст?</h2>
+
+            <p>
+                Якщо ви майстер або будівельник і хочете приєднатися до каталогу майстрів Нікополя, зв'яжіться з нами!
+            </p>
+
+            <a href="https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20майстрів%20Нікополя."
+                class="add-master-btn whatsapp-btn">
+                💬 Додати свою анкету через WhatsApp
+            </a>
+
+
+
+            <a href="viber://chat?number=%2B380686479588"
+             class="add-master-btn viber-btn">
+                💬 Додайте свою анкету через Viber
+                
+            </a>
+
+
+
+            <p>
+                І ми безкоштовно додамо вашу анкету до каталогу.
+            </p>
+            <ul class="join-list">
+                <li>👤Ваше ім'я</li>
+                <li>🔨Спеціалізацію (наприклад, сантехнік, електрик, будівельник тощо)</li>
+                <li>📝Короткий опис послуг, які ви надаєте</li>
+                <li>📞Контактний номер телефону</li>
+                <li>🏆Досвід роботи</li>
+            </ul>
+
+            <p class="join-note">
+                ⏱️ Додавання анкети займає лише хвилину.
+            </p>
+        </section>
+
+        <section class="join-section">
+            <h2>Ви виробник, магазин або офіційний педставник бренду?</h2>
+            <h2>Працюєте в сфері будівельних матеріалів та інструменту?</h2>
+
+            <p>
+                Отримайте окрему сторінку вашої компанії з описом продукції, фотографіями, контактами та прикладами робіт. Допоможіть клієнтам швидше знайти саме вас.
+            </p>
+
+            <a href="https://wa.me/380957996024?text=Добрий%20день!%20В%20мене%20є%20потреба%20в%20осотистій%20вебсторінці."
+                class="add-master-btn whatsapp-btn">
+                💬 Зв'язатися через WhatsApp
+            </a>
+            <h3></h3>
+                ✅Створення сторінки займає 1-3 дні.
+                ✅Консультація безкоштовна.
+            </h3>
+
+        </section>
+
+
+
+        
+
+    </main>    
+
+
+    
+    
+    
+
+    
+
+
+
+    <button id="scrollToTopBtn" aria-label="Наверх">
+            ▲
+        </button> <!--кнопка наверх-->
+
+
+
+
+
+
+    <footer id="contacts"> 
+        <h2>Майстри і будівельники нашого міста</h2>
+
+        <a href="tel:+380957996024">
+            📞+38 (095) 799 60 24
+        </a>
+            <p>
+             <a href="mailto:yurij.webdev@gmail.com" title="Написати нам">
+                📧E-mail
+            </a>
+            </p>
+
+            <p>📍Нікополь, Україна</p>
+
+            <p>© Майстри і будівельники нашого міста 2026</p>
+
+
+    </footer>
+
+        <!--посилання до ява скрипта-->
+    <script src="script.js"></script> 
+
+
+        
+
+
+</body>
+</html>
