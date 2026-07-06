@@ -805,7 +805,7 @@ footer {
         /* Налаштування самого зображення всередині картки */
     .delivery-card img {
         display: block;
-        width: 100%;
+        width: 95%;
         border-radius: 15px;
     }
 
