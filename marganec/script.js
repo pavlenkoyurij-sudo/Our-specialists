@@ -26,6 +26,22 @@
                 page:""
             },
 
+               {
+                id: 2,
+                isPremium: false,
+                name: "Шукаємо майстрів",
+                photo: "images/noCard.jpeg",
+                profession: "Ми чекаємо саме вас",
+                category: "noCard",
+                rating:"",
+                reviews:"",
+                experience:"",
+                city: "Марганець",
+                phone: "380686479588",
+                description: "Зателефонуйте нам або напишіть",
+                page:""
+            },
+
 
         ];
 
