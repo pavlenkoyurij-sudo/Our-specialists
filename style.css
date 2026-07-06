@@ -762,6 +762,91 @@ footer {
 
 
 
+    /*силі блоку : НАШІ ПЕРЕВІЗНИКИ*/
+    .delivery-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .delivery-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Маленький стильний акцент під заголовком */
+    .delivery-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
+
+    .delivery-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .delivery-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+
+
+        /* Налаштування самого зображення всередині картки */
+    .delivery-card img {
+        display: block;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* Ефект при наведенні мишкою */
+    .delivery-card:hover {
+        transform: translateY(-5px); /* Картка акуратно піднімається вгору */
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
+    }
+
+
+    .delivery-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+        
+  
+
+        /* Ефект при наведенні */
+    .delivery-btn:hover {
+        background-color: #e65c00; 
+        transform: translateX(-50%) scale(1.05); 
+    }
+
+
+
+
+
 
 
 
