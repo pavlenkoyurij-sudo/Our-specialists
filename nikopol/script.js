@@ -39,6 +39,22 @@
                 page:""
             },
 
+               {
+                id: 3,
+                isPremium: false,
+                name: "Шукаємо майстрів",
+                photo: "images/noCard.jpeg",
+                profession: "Ми чекаємо саме вас",
+                category: "noCard",
+                rating:"",
+                reviews:"",
+                experience:"",
+                city: "Нікополь",
+                phone: "380686479588",
+                description: "Зателефонуйте нам або напишіть",
+                page:""
+            },
+
 
         ];
 
