@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pavlenkoyurij-sudo.github.io/Our-specialists/sitemap.xml
