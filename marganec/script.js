@@ -37,7 +37,7 @@
                 reviews:"",
                 experience:"",
                 city: "Марганець",
-                phone: "380686479588",
+                phone: "380957996024",
                 description: "Зателефонуйте нам або напишіть",
                 page:""
             },
