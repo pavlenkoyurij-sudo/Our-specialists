@@ -57,6 +57,21 @@
             {
                 id: 4,
                 isPremium: false,
+                name: "Андрій - ПП Водоприлад-Сервіс",
+                profession: "Майстер з монтажу систем опалення",
+                category: "heating-installer",
+                rating: 4.6,
+                reviews: 3,
+                experience: 14,
+                city: "Нікополь",
+                phone: "+380508092967",
+                description: "Монтаж опалення (котли, конвектори), оформлення пільгового тарифу, встановлення лічильників день/ніч. Опалення під ключ",
+                page:""
+            },
+
+            {
+                id: 5,
+                isPremium: false,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
                 profession: "Ми чекаємо саме вас",
@@ -65,7 +80,7 @@
                 reviews:"",
                 experience:"",
                 city: "Нікополь",
-                phone: "380957996024",
+                phone: "380686479588",
                 description: "Зателефонуйте нам або напишіть",
                 page:""
             },
