@@ -203,7 +203,7 @@
 
             {
                 id: 14,
-                isPremium: false,
+                isPremium: true,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
                 profession: "Ми чекаємо саме вас",
@@ -213,8 +213,8 @@
                 experience:"",
                 city: "Покров",
                 phone: "380957996024",
-                description: "Зателефонуйте нам або напишіть",
-                page:""
+                description: "Напишіть нам у WhatsApp",
+                page:"https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20майстрів%20Покрова."
             },
         ];
 
