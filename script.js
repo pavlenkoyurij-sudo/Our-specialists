@@ -201,8 +201,23 @@
                 page:""
             },
 
-            {
+              {
                 id: 14,
+                isPremium: false,
+                name: "Віталій",
+                profession: "Зварювальник",
+                category: "welder",
+                rating: 4.6,
+                reviews: 1,
+                experience: 4,
+                city: "Покров",
+                phone: "+380509793089",
+                description: "Пропоную послуги по зварюванню металоконструкцій різної складності! Ваш матеріал та фото бажаної  металоконструкції, моя робота. Надаю послуги зварювальника в Покрові",
+                page:""
+            },
+
+            {
+                id: 30,
                 isPremium: true,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
