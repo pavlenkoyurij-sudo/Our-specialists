@@ -70,8 +70,68 @@
             },
 
             {
-                id: 14,
-                isPremium: true,
+                id: 5,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Сантехнік",
+                category: "plumber",
+                rating: 4.7,
+                reviews: 1,
+                experience: 15,
+                city: "Нікополь",
+                phone: "+380983283691",
+                description: "Надаю послуги сантехніка",
+                page:""
+            },
+
+            {
+                id: 6,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Електрик",
+                category: "electrician",
+                rating: 4.7,
+                reviews: 1,
+                experience: 15,
+                city: "Нікополь",
+                phone: "+380983283691",
+                description: "Надаю послуги електрика",
+                page:""
+            },
+
+            {
+                id: 7,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Майстер з монтажу вікон",
+                category: "window-installer",
+                rating: 4.7,
+                reviews: 1,
+                experience: 15,
+                city: "Нікополь",
+                phone: "+380983283691",
+                description: "Надаю послуги з монтажу вікон (встановлення вікон). Підготовчі роботи: Проведення точних вимірів, оцінка рівня стін та підлоги, допомога у виборі матеріалів та підготовка віконного отвору.",
+                page:""
+            },
+
+            {
+                id: 8,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Майстер з монтажу дверей",
+                category: "door-installer",
+                rating: 4.7,
+                reviews: 1,
+                experience: 15,
+                city: "Нікополь",
+                phone: "+380983283691",
+                description: "Надаю послуги з монтажу дверей (встановлення дверей). Підготовчі роботи: Проведення точних вимірів, оцінка рівня стін та підлоги, допомога у виборі матеріалів та підготовка дверного отвору. Монтаж конструкції.",
+                page:""
+            },
+
+            {
+                id: 30,
+                isPremium: false,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
                 profession: "Ми чекаємо саме вас",
@@ -80,9 +140,9 @@
                 reviews:"",
                 experience:"",
                 city: "Нікополь",
-                phone: "380957996024",
-                description: "Напишіть нам у WhatsApp",
-                page:"https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20майстрів%20Нікополя."
+                phone: "380686479588",
+                description: "Зателефонуйте нам або напишіть",
+                page:""
             },
 
 
