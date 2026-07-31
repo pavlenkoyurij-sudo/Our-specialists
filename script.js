@@ -231,6 +231,21 @@
                 page:""
             },
 
+              {
+                id: 16,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Вантажник",
+                category: "worker",
+                rating: 4.6,
+                reviews: 1,
+                experience: 7,
+                city: "Покров",
+                phone: "+380974517199",
+                description: "Надаємо послуги вантажників, група. Надаємо послуги з обрізки дерев.",
+                page:""
+            },
+
             {
                 id: 30,
                 isPremium: true,
