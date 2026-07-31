@@ -129,6 +129,21 @@
                 page:""
             },
 
+              {
+                id: 9,
+                isPremium: false,
+                name: "Андрій",
+                profession: "Натяжна стеля",
+                category: "stretch-ceilings",
+                rating: 4.7,
+                reviews: 1,
+                experience: 11,
+                city: "Нікополь",
+                phone: "+380957787462",
+                description: "Монтаж натяжних стель Premium якості, будь-якої складності. Т: 0957787462, 0969948550 ",
+                page:""
+            },
+
             {
                 id: 30,
                 isPremium: false,
