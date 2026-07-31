@@ -207,12 +207,27 @@
                 name: "Віталій",
                 profession: "Зварювальник",
                 category: "welder",
-                rating: 4.6,
+                rating: 4.7,
                 reviews: 1,
                 experience: 4,
                 city: "Покров",
                 phone: "+380509793089",
                 description: "Пропоную послуги по зварюванню металоконструкцій різної складності! Ваш матеріал та фото бажаної  металоконструкції, моя робота. Надаю послуги зварювальника в Покрові",
+                page:""
+            },
+
+              {
+                id: 15,
+                isPremium: false,
+                name: "Андрій",
+                profession: "Натяжна стеля",
+                category: "stretch-ceilings",
+                rating: 4.7,
+                reviews: 1,
+                experience: 11,
+                city: "Покров",
+                phone: "+380957787462",
+                description: "Монтаж натяжних стель Premium якості, будь-якої складності. Т: 0957787462, 0969948550 ",
                 page:""
             },
 
