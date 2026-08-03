@@ -246,6 +246,22 @@
                 page:""
             },
 
+              {
+                id: 17,
+                isPremium: false,
+                name: "Тетяна",
+                profession: "Прибирання, (клінінг)",
+                category: "cleaning",
+                rating: 4.7,
+                reviews: 1,
+                experience: 5,
+                city: "Покров",
+                phone: "+380685155375",
+                description: "Професійне прибирання квартир, будинків та офісів, інших приміщень. Надаю клінінгові послуги.",
+                photo: "images/cleaning.jpeg",
+                page:""
+            },
+
             {
                 id: 30,
                 isPremium: true,
