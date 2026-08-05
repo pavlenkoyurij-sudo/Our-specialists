@@ -367,13 +367,15 @@ footer {
     }
 
     /*силі блоку : НАШІ ПАРТНЕРИ*/
-    .partners-section {
+    .partners-section,
+    .hot-section {
         padding: 60px 20px;
         text-align: center;
         max-width: 1200px;
         margin: 0 auto;
     }
-    .partners-title {
+    .partners-title,
+    .hot-title {
         font-size: 2rem;
         margin-bottom: 40px;
         position: relative;
@@ -381,7 +383,8 @@ footer {
     }
 
     /* Маленький стильний акцент під заголовком */
-    .partners-title::after {
+    .partners-title::after,
+    .hot-title::after {
         content: '';
         position: absolute;
         left: 0;
@@ -392,12 +395,14 @@ footer {
         border-radius: 2px;
     }
 
-    .partners-container {
+    .partners-container,
+    .hot-container {
         display: flex;
         align-items: center;
     }
 
-    .partner-card {
+    .partner-card,
+    .hot-card {
         position: relative;
         max-width: 900px;
         margin: 0 auto;
@@ -407,20 +412,23 @@ footer {
 
 
         /* Налаштування самого зображення всередині картки */
-    .partner-card img {
+    .partner-card img,
+    .hot-card img {
         display: block;
         width: 100%;
         border-radius: 15px;
     }
 
     /* Ефект при наведенні мишкою */
-    .partner-card:hover {
+    .partner-card:hover,
+    .hot-card:hover {
         transform: translateY(-5px); /* Картка акуратно піднімається вгору */
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
     }
 
 
-    .partner-btn {
+    .partner-btn,
+    .hot-btn {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -442,7 +450,8 @@ footer {
   
 
         /* Ефект при наведенні */
-    .partner-btn:hover {
+    .partner-btn:hover,
+    .hot-btn:hover {
         background-color: #e65c00; 
         transform: translateX(-50%) scale(1.05); 
     }
