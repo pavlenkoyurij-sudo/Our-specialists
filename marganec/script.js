@@ -26,7 +26,7 @@
                 page:""
             },
 
-               {
+            {
                 id: 2,
                 isPremium: false,
                 name: "Сергій",
