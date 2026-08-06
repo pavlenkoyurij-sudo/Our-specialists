@@ -27,8 +27,24 @@
             },
 
                {
-                id: 14,
-                isPremium: true,
+                id: 2,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Збиральник меблів",
+                category: "furniture-assembler",
+                rating: 4.7,
+                reviews: 1,
+                experience: 5,
+                city: "Марганець",
+                phone: "+380666816046",
+                description: "Надаю послуги зі збирання та ремонту меблів в Марганці, Городище, Червоногригоровка, Максимова",
+                photo: "images/furniture-assembler.jpeg",
+                page:""
+            },
+
+            {
+                id: 30,
+                isPremium: false,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
                 profession: "Ми чекаємо саме вас",
@@ -37,9 +53,9 @@
                 reviews:"",
                 experience:"",
                 city: "Марганець",
-                phone: "380957996024",
-                description: "Напишіть нам у WhatsApp",
-                page:"https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20майстрів%20Марганця."
+                phone: "380686479588",
+                description: "Зателефонуйте нам або напишіть",
+                page:""
             },
 
 
