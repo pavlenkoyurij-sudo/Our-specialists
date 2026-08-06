@@ -38,7 +38,7 @@
                 city: "Марганець",
                 phone: "+380666816046",
                 description: "Надаю послуги зі збирання та ремонту меблів в Марганці, Городище, Червоногригоровка, Максимова",
-                photo: "images/furniture-assembler.jpeg",
+                photo: "images/furniture.jpeg",
                 page:""
             },
 
