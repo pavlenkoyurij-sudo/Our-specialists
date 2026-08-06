@@ -179,7 +179,6 @@
 
 
 
-
             //Функція пошуку
         function searchMaster() {
 
