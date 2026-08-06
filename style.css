@@ -367,15 +367,13 @@ footer {
     }
 
     /*силі блоку : НАШІ ПАРТНЕРИ*/
-    .partners-section,
-    .hot-section {
+    .partners-section {
         padding: 60px 20px;
         text-align: center;
         max-width: 1200px;
         margin: 0 auto;
     }
-    .partners-title,
-    .hot-title {
+    .partners-title {
         font-size: 2rem;
         margin-bottom: 40px;
         position: relative;
@@ -383,8 +381,7 @@ footer {
     }
 
     /* Маленький стильний акцент під заголовком */
-    .partners-title::after,
-    .hot-title::after {
+    .partners-title::after {
         content: '';
         position: absolute;
         left: 0;
@@ -395,14 +392,12 @@ footer {
         border-radius: 2px;
     }
 
-    .partners-container,
-    .hot-container {
+    .partners-container {
         display: flex;
         align-items: center;
     }
 
-    .partner-card,
-    .hot-card {
+    .partner-card {
         position: relative;
         max-width: 900px;
         margin: 0 auto;
@@ -412,23 +407,20 @@ footer {
 
 
         /* Налаштування самого зображення всередині картки */
-    .partner-card img,
-    .hot-card img {
+    .partner-card img {
         display: block;
         width: 100%;
         border-radius: 15px;
     }
 
     /* Ефект при наведенні мишкою */
-    .partner-card:hover,
-    .hot-card:hover {
+    .partner-card:hover {
         transform: translateY(-5px); /* Картка акуратно піднімається вгору */
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
     }
 
 
-    .partner-btn,
-    .hot-btn {
+    .partner-btn {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -446,14 +438,77 @@ footer {
         transition: 0.3s;
     }
 
+    
+
         
   
 
         /* Ефект при наведенні */
-    .partner-btn:hover,
-    .hot-btn:hover {
+    .partner-btn:hover {
         background-color: #e65c00; 
         transform: translateX(-50%) scale(1.05); 
+    }
+
+
+     /*силі блоку : НАШІ АКЦІЇ*/
+    .hot-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hot-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Маленький стильний акцент під заголовком */
+    .hot-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
+
+    .hot-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px;
+        background-color: #f9f9f9; /* Можна додати легкий фоновий колір */
+        border: 2px dashed #ff6600;  /* Або стильну рамку для акценту */
+        border-radius: 15px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hot-btn {
+        /* Без position: absolute — кнопка йде чітко під текстом */
+        display: inline-block;
+        margin-top: 20px;
+        
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+    .hot-btn:hover {
+        background-color: #e65c00;
+        transform: scale(1.05);
     }
 
     .seo-text {
