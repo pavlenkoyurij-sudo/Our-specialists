@@ -275,7 +275,7 @@
                 city: "Покров",
                 phone: "380957996024",
                 description: "Напишіть нам у WhatsApp",
-                page:"https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20майстрів%20Покрова."
+                page:"https://pavlenkoyurij-sudo.github.io/Our-specialists/index.html#join-master-section"
             },
         ];
 
