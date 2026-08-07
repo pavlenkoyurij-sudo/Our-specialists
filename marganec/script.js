@@ -44,7 +44,7 @@
 
             {
                 id: 30,
-                isPremium: false,
+                isPremium: true,
                 name: "Шукаємо майстрів",
                 photo: "images/noCard.jpeg",
                 profession: "Ми чекаємо саме вас",
@@ -55,7 +55,7 @@
                 city: "Марганець",
                 phone: "380686479588",
                 description: "Зателефонуйте нам або напишіть",
-                page:""
+                page:"https://pavlenkoyurij-sudo.github.io/Our-specialists/marganec/index.html#join-master-section"
             },
 
 
