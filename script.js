@@ -332,7 +332,7 @@
 
                         </button>
                         
-                        ${master.isPremium ? `
+                        ${master.isPremium && master.page ? `
                         <a class="premium-btn"
                         href="${master.page}">
                         Детальніше:
