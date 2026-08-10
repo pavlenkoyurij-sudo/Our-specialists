@@ -277,6 +277,21 @@
 
             },
 
+               {
+                id: 19,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Благоустрій території",
+                category: "landscaping-services",
+                rating: 4.6,
+                reviews: 1,
+                experience: 7,
+                city: "Покров",
+                phone: "+380974517199",
+                description: "Надаємо послуги з обрізки дерев.",
+                page:""
+            },
+
             {
                 id: 30,
                 isPremium: true,
