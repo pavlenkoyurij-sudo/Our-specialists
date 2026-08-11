@@ -1,6 +1,8 @@
 
+
+
 body {
-    background-image: url("background-image.jpeg");
+    background-image: url("images/background-image.jpeg");
     background-size: cover;/*розтягуємо картинку на весь екран*/
     background-position: center;/*центруємо картинку по вертикалі і горизонталі*/
     background-attachment: fixed;/*фіксуємо артинку на місці, щоб не рухався зі скроломк*/
@@ -193,13 +195,6 @@ footer {
         text-align: left;
     }
 
-    .master-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
     .master-description {
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -207,6 +202,13 @@ footer {
         overflow: hidden;
         color: #555;
         font-size: 0.9rem;
+    }
+
+    .master-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
 
@@ -438,8 +440,6 @@ footer {
         transition: 0.3s;
     }
 
-    
-
         
   
 
@@ -447,68 +447,6 @@ footer {
     .partner-btn:hover {
         background-color: #e65c00; 
         transform: translateX(-50%) scale(1.05); 
-    }
-
-
-     /*силі блоку : НАШІ АКЦІЇ*/
-    .hot-section {
-        padding: 60px 20px;
-        text-align: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .hot-title {
-        font-size: 2rem;
-        margin-bottom: 40px;
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Маленький стильний акцент під заголовком */
-    .hot-title::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 110%; /* Лінія на половину довжини тексту */
-         height: 2px;
-        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
-        border-radius: 2px;
-    }
-
-    .hot-card {
-        position: relative;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 30px 20px;
-        background-color: #f9f9f9; /* Можна додати легкий фоновий колір */
-        border: 2px dashed #ff6600;  /* Або стильну рамку для акценту */
-        border-radius: 15px;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hot-btn {
-        /* Без position: absolute — кнопка йде чітко під текстом */
-        display: inline-block;
-        margin-top: 20px;
-        
-        background-color: #ff6600;
-        color: white;
-        padding: 14px 28px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        transition: 0.3s;
-    }
-
-    .hot-btn:hover {
-        background-color: #e65c00;
-        transform: scale(1.05);
     }
 
     .seo-text {
@@ -530,8 +468,7 @@ footer {
         font-size: 18px;
     }
 
-
-    /*--- стилі блоку відгуків ---*/
+                /*--- стилі блоку відгуків ---*/
 
          /*--- головна секція: центруємо тект, додаємо відступи ---*/
     .reviews-section {
@@ -542,14 +479,14 @@ footer {
 
     }
 
-        /*---  ---*/
+        /*--- підзаголовок ---*/
     .reviews-subtitle {
         color: #141313;
         font-size: 22px;
         margin-bottom: 30px;
     }
 
-        /*---  ---*/
+        /*--- контейнен(флекс-бокс) ---*/
     .reviews-container {
         display: flex;
         justify-content: center;
@@ -559,20 +496,23 @@ footer {
         margin: 0 auto 40px;
     }
 
-      /*---  ---*/
+      /*--- сама картка відгуку ---*/
     .review-card {
-        background-color: #f9f9f9;
+        background-color: white;
+        border: 1px solid #e5e5e5;
         border-radius: 16px;
         padding: 20px;
+        
         width: 100%;
         max-width: 450px;
         text-align: left;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
+            /*--- верхня частина картки ---*/
     .review-heder {
         display: flex;
         justify-content: space-between;
@@ -588,7 +528,7 @@ footer {
 
 
     .review-stars {
-        color: #ffcc00;
+        color: #ffcc00;/*--- золотий колір зірочок ---*/
         font-size: 14px;
     }
 
@@ -598,6 +538,16 @@ footer {
         align-self: flex-end;
     }
 
+    .review-text {
+        color: #181818;
+        font-size: 15px;
+        line-height: 1.6;/*--- збільшуємо відстант між рядками, щоб легче читалося ---*/
+        font-style: italic;/*--- робимо текст курсивом бо пряма мова відгуку ---*/
+        margin-bottom: 15px;
+    }
+
+
+        /*--- кнопка залишити відгук ---*/
     .leave-review-btn {
         display: inline-block;
         padding: 14px 28px;
@@ -605,24 +555,26 @@ footer {
         color: white;
         font-weight: bold;
         font-size: 16px;
-        text-decoration: none;
+        text-decoration: none;/*--- прибираєма стандартне підкреслення посилання ---*/
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(102, 116, 107, 0.3);
+        box-shadow: 0 4px 15px rgba(102, 116, 107, 0.3);/*--- тінь кнопки ---*/
         transition: all 0.2s ease;
     }
 
     .leave-review-btn:hover {
         background-color: #20ba5a;
         transform: rotateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 116, 107, 0.4);
+        box-shadow: 0 6px 20px rgba(48, 53, 49, 0.4);/*--- тінь стає глибшою ---*/
     }
 
+        /*--- ефект при кліку ---*/
     .leave-review-btn:active {
-        transform: rotateY(0);        
+        transform: translateY(-2px);        
     }
 
 
-    /*--- контейнер для картки блогу ---*/
+
+        /*--- контейнер для картки блогу ---*/
     .blog-promo-section {
         max-width: 1200px;
         margin: 40px auto;
@@ -701,12 +653,13 @@ footer {
         transform: translateY(0);
     }
 
-    /*--- плавний перехід від чторінки до сторінки ---*/
+
+     /*--- плавний перехід від чторінки до сторінки ---*/
     html {
         scroll-behavior: smooth;
     }
 
-.premium-btn {
+    .premium-btn {
         display: inline-block;
         margin-top: 10px;
         padding: 10px 18px;
@@ -721,112 +674,109 @@ footer {
     .premium-btn:hover {
         transform: scale(1.05);
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
+    }    
 
     /* Базові налаштування для шапки */
+header {
+    display: flex;
+    justify-content: space-between; /* Розносить заголовок вліво, меню вправо */
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky; /* Шапка плавно залишається вгорі при скролі */
+    top: 0;
+    z-index: 1000;
+    
+    /* М'який ефект скла, який не перетягує увагу */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Тонка акуратна лінія знизу замість грубої тіні */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+    transition: all 0.3s ease;
+}
+
+/* Назва сайту в шапці */
+header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c3e50; /* Спокійний темно-синій/сірий колір замість чисто чорного */
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Контейнер для посилань */
+header nav {
+    display: flex;
+    gap: 20px; /* Відступи між посиланнями, щоб код дихав */
+    align-items: center;
+}
+
+/* Стилі для звичайних посилань */
+header nav a {
+    text-decoration: none;
+    color: #555; /* М'який колір для другорядних елементів */
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+/* Ефект наведення на звичайні посилання */
+header nav a:hover {
+    color: #2c3e50;
+    background: rgba(0, 0, 0, 0.04); /* Легке підсвічування фону */
+}
+
+/* Хак для важливих кнопок: виділяємо "Нікополь" та "Зв'язатися" */
+/* Посилання на Нікополь робимо трохи акцентним, але спокійним */
+header nav a[href*="nikopol"] {
+    background: rgba(243, 156, 18, 0.1); /* Легкий натяк на твій фірмовий теплий колір */
+    color: #e67e22;
+    font-weight: 600;
+}
+
+header nav a[href*="nikopol"]:hover {
+    background: rgba(243, 156, 18, 0.18);
+    color: #d35400;
+}
+
+/* Кнопка "Зв'язатися" (mailto) — робимо акуратною контурною кнопочкою */
+header nav a[href^="mailto:"] {
+    border: 1px solid #f39c12;
+    color: #f39c12;
+    font-weight: 600;
+}
+
+header nav a[href^="mailto:"]:hover {
+    background: #f39c12;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
+}
+
+/* Адаптивність: якщо екран маленький (телефон), переносимо меню під заголовок */
+@media (max-width: 768px) {
     header {
-        display: flex;
-        justify-content: space-between; /* Розносить заголовок вліво, меню вправо */
-        align-items: center;
-        padding: 15px 40px;
-        position: sticky; /* Шапка плавно залишається вгорі при скролі */
-        top: 0;
-        z-index: 1000;
-        
-        /* М'який ефект скла, який не перетягує увагу */
-        background: rgba(255, 255, 255, 0.85); 
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        
-        /* Тонка акуратна лінія знизу замість грубої тіні */
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
-        transition: all 0.3s ease;
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+        text-align: center;
     }
     
-    /* Назва сайту в шапці */
-    header h2 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #2c3e50; /* Спокійний темно-синій/сірий колір замість чисто чорного */
-        margin: 0;
-        letter-spacing: -0.5px;
-    }
-    
-    /* Контейнер для посилань */
     header nav {
-        display: flex;
-        gap: 20px; /* Відступи між посиланнями, щоб код дихав */
-        align-items: center;
+        flex-wrap: wrap; /* Дозволяє посиланням переноситися на новий рядок на смартфонах */
+        justify-content: center;
+        gap: 8px;
     }
     
-    /* Стилі для звичайних посилань */
     header nav a {
-        text-decoration: none;
-        color: #555; /* М'який колір для другорядних елементів */
-        font-size: 0.95rem;
-        font-weight: 500;
-        padding: 6px 12px;
-        border-radius: 6px;
-        transition: all 0.25s ease;
+        font-size: 0.85rem;
+        padding: 5px 10px;
     }
-    
-    /* Ефект наведення на звичайні посилання */
-    header nav a:hover {
-        color: #2c3e50;
-        background: rgba(0, 0, 0, 0.04); /* Легке підсвічування фону */
-    }
-    
-    /* Хак для важливих кнопок: виділяємо "Нікополь" та "Зв'язатися" */
-    /* Посилання на Нікополь робимо трохи акцентним, але спокійним */
-    header nav a[href*="nikopol"] {
-        background: rgba(243, 156, 18, 0.1); /* Легкий натяк на твій фірмовий теплий колір */
-        color: #e67e22;
-        font-weight: 600;
-    }
-    
-    header nav a[href*="nikopol"]:hover {
-        background: rgba(243, 156, 18, 0.18);
-        color: #d35400;
-    }
-    
-    /* Кнопка "Зв'язатися" (mailto) — робимо акуратною контурною кнопочкою */
-    header nav a[href^="mailto:"] {
-        border: 1px solid #f39c12;
-        color: #f39c12;
-        font-weight: 600;
-    }
-    
-    header nav a[href^="mailto:"]:hover {
-        background: #f39c12;
-        color: #fff;
-        box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
-    }
-    
-    /* Адаптивність: якщо екран маленький (телефон), переносимо меню під заголовок */
-    @media (max-width: 768px) {
-        header {
-            flex-direction: column;
-            gap: 12px;
-            padding: 15px 20px;
-            text-align: center;
-        }
-        
-        header nav {
-            flex-wrap: wrap; /* Дозволяє посиланням переноситися на новий рядок на смартфонах */
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        header nav a {
-            font-size: 0.85rem;
-            padding: 5px 10px;
-        }
-    }
+}
 
-
-
-
-    /*силі блоку : НАШІ ПЕРЕВІЗНИКИ*/
+ /*силі блоку : НАШІ ПЕРЕВІЗНИКИ*/
     .delivery-section {
         padding: 60px 20px;
         text-align: center;
@@ -917,18 +867,94 @@ footer {
         color: orange;
     }
 
+    /* Стиль для помаранчевої кнопки в навігації */
+    .nav-btn-highlight {
+        background-color: #ff6600; /* Помаранчевий колір */
+        color: #ffffff !important;   /* Білий текст */
+        padding: 8px 16px;
+        border-radius: 20px;       /* Закруглення як у банера */
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
 
+    /* Ефект при наведенні курсору */
+    .nav-btn-highlight:hover {
+        background-color: #e65c00; /* Трохи темніший при наведенні */
+        box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+        transform: translateY(-1px);
+    }
 
+    /*силі блоку : НАШІ АКЦІЇ*/
+    .hot-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hot-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
 
+    /* Маленький стильний акцент під заголовком */
+    .hot-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
 
-
-
-
-            
-
-
-
+    .hot-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px;
+        background-color: #f9f9f9; /* Можна додати легкий фоновий колір */
+        border: 2px dashed #ff6600;  /* Або стильну рамку для акценту */
+        border-radius: 15px;
         
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hot-btn {
+        /* Без position: absolute — кнопка йде чітко під текстом */
+        display: inline-block;
+        margin-top: 20px;
+        
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+    .hot-btn:hover {
+        background-color: #e65c00;
+        transform: scale(1.05);
+    }
+
+    .hot-banner {
+        width: 100%; /* Можна змінити на бажану ширину */
+        height: auto;
+        
+        border-radius: 8px;
+        margin: 0 auto 20px auto; /* Центруємо банер і додаємо відступ знизу */
+    
+    }
+
 
 
 
