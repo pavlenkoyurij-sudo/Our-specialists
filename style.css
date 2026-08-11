@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url("images/background-image.jpeg");
+    background-image: url("background-image.jpeg");
     background-size: cover;/*розтягуємо картинку на весь екран*/
     background-position: center;/*центруємо картинку по вертикалі і горизонталі*/
     background-attachment: fixed;/*фіксуємо артинку на місці, щоб не рухався зі скроломк*/
