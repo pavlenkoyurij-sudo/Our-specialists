@@ -955,6 +955,76 @@ header nav a[href^="mailto:"]:hover {
     
     }
 
+    /* Модальне вікно */
+    .master-modal {
+        border: none;
+        border-radius: 16px;
+        padding: 25px;
+        width: 90%;
+        max-width: 550px;
+        max-height: 85vh; /* Якщо текст великий, вікно не вийде за межі екрана */
+        overflow-y: auto; /* Вмикає скрол усередині вікна */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Затемнення та розмиття фону */
+    .master-modal::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-close-icon {
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #666;
+    }
+
+    .modal-photo {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    .modal-desc {
+        white-space: pre-line; /* Зберігає абзаци та переноси рядків */
+        line-height: 1.5;
+        font-size: 1.05rem;
+        color: #333;
+    }
+
+    /* Обрізаємо опис у картці до 3 рядків, щоб усі картки були рівними */
+    .master-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Курсор-вказівник для картки, щоб юзер розумів, що на неї можна натиснути */
+    .master-card {
+        cursor: pointer;
+    }
+
+    #modalCallBtn {
+        align-self: center; /* Вирівнює саме кнопку по центру, не розтягуючи */
+        width: fit-content;  /* Ширина суворо під розмір тексту та іконки */
+        padding: 10px 25px; /* Зручні відступи для натискання */
+    }
+
 
 
 
