@@ -73,62 +73,53 @@
         const masterGrid = document.getElementById("masterGrid");
 
         function renderMasters() {
+    masterGrid.innerHTML = "";
 
-            masterGrid.innerHTML = "";
+    masters.forEach(master => {
+        masterGrid.innerHTML += `
+            <div class="master-card"
+                data-category="${master.category}"
+                onclick="openMasterModal(${master.id})">
 
-            masters.forEach(master => {
+                <img src="${master.photo}"
+                    alt="${master.name}"
+                    onerror="this.onerror=null; this.src='images/default.jpeg';"> 
+                    
+                <h3>${master.name}</h3>
 
-                masterGrid.innerHTML += `
-                    <div class="master-card"
-                        data-category="${master.category}">
+                <p>🛠️${master.profession}</p>
+                <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
 
-                        <img src="${master.photo}"
-                            alt="${master.name}"
-                            onerror="this.onerror=null; this.src='images/default.jpeg';"> 
-                            
-                        <h3>${master.name}</h3>
+                <p>⭐${master.rating} (${master.reviews} відгуків)</p>
+                <p>🏆${master.experience} років досвіду</p>
+                <p>📍${master.city}</p>
+                    
+                <a class="call-btn"
+                    href="tel:${master.phone}"
+                    onclick="event.stopPropagation()">
+                    📞Подзвонити
+                </a>
 
-                        <p>🛠️${master.profession}</p>
-                        <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
+                <button
+                    class="favorite-btn"
+                    data-phone="${master.phone}"
+                    onclick="event.stopPropagation(); toggleFavorite('${master.phone}')">
+                    ⭐ В обране
+                </button>
+                
+                ${master.isPremium && master.page ? `
+                <a class="premium-btn"
+                   href="${master.page}"
+                   onclick="event.stopPropagation()">
+                    Детальніше:
+                </a>
+                ` : ""}
+            </div>
+        `; 
+    });
 
-                        <p>⭐${master.rating}
-                        (${master.reviews} відгуків)
-                        </p>
-
-                        <p>
-                            🏆${master.experience} років досвіду
-                        </p>
-
-                        <p>📍${master.city}</p>
-                            
-                        <a class="call-btn"
-                            href="tel:${master.phone}">
-                            📞Подзвонити
-                        </a>
-
-                        <button
-                            class="favorite-btn"
-                            data-phone="${master.phone}"
-                            onclick="toggleFavorite('${master.phone}')">
-                            ⭐ В обране
-
-                        </button>
-                        
-                        ${master.isPremium && master.page ? `
-                        <a class="premium-btn"
-                        href="${master.page}">
-                        Детальніше:
-                         </a>
-                        ` : ""}
-                        
-
-                            
-                    </div>
-                `; 
-            });
-
-            renderFavorites();
-        }
+    renderFavorites();
+}
       
         //onerror="this.onerror=null; this.src='images/default.jpeg';" - це атрибут зображення, який забезпечує заміну зображення на "images/default.jpeg" у випадку помилки завантаження (наприклад, якщо вказане зображення не існує або недоступне). Це дозволяє уникнути відображення порожнього місця або помилки замість зображення майстра.
 
@@ -200,6 +191,41 @@
                 }
             });
         }
+
+
+       // Логіка модального вікна
+        const modal = document.getElementById("masterModal");
+
+        function openMasterModal(id) {
+            // Знаходимо майстра в масиві за id
+            const master = masters.find(m => m.id === id);
+            if (!master) return;
+
+            // Заповнюємо дані в модалці
+            document.getElementById("modalName").textContent = master.name;
+            document.getElementById("modalProfession").textContent = "🛠️ " + master.profession;
+            document.getElementById("modalCity").textContent = "📍 " + master.city;
+            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
+            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
+            
+            const photoEl = document.getElementById("modalPhoto");
+            photoEl.src = master.photo || 'images/default.jpeg';
+            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
+
+            // Відкриваємо вікно
+            modal.showModal();
+        }
+
+        function closeMasterModal() {
+            modal.close();
+        }
+
+        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
 
 
 
