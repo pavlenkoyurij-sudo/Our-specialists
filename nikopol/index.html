@@ -390,6 +390,23 @@
 
     </footer>
 
+
+    <!-- Універсальне модальне вікно для детального опису -->
+    <dialog id="masterModal" class="master-modal">
+        <div class="modal-content">
+            <button class="modal-close-icon" onclick="closeMasterModal()">&times;</button>
+            <img id="modalPhoto" src="" alt="" class="modal-photo">
+            <h3 id="modalName"></h3>
+            <p id="modalProfession" class="modal-prof"></p>
+            <p id="modalCity" class="modal-city"></p>
+            <hr>
+            <h4>Повний опис послуг:</h4>
+            <p id="modalDescription" class="modal-desc"></p>
+            <hr>
+            <a id="modalCallBtn" href="" class="call-btn">📞 Подзвонити</a>
+        </div>
+    </dialog>
+
         <!--посилання до ява скрипта-->
     <script src="script.js"></script> 
 
