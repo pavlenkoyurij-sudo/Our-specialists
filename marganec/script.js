@@ -100,12 +100,9 @@
                     📞Подзвонити
                 </a>
 
-                <button
-                    class="favorite-btn"
-                    data-phone="${master.phone}"
-                    onclick="event.stopPropagation(); toggleFavorite('${master.phone}')">
-                    ⭐ В обране
-                </button>
+                <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
+                ⭐ В обране
+            </button>
                 
                 ${master.isPremium && master.page ? `
                 <a class="premium-btn"
@@ -131,39 +128,35 @@
         
 
                 //Функція додавання та видалення майстрів з фаворитів
-        function toggleFavorite(masterPhone) {
-            if (favorites.includes(masterPhone)) {
-                favorites = favorites.filter(
-                item => item !== masterPhone
-            );
+        function toggleFavorite(event, masterId) {
+            // Зупиняємо вспливання події, щоб не відкривалася модалка
+            event.stopPropagation();
+
+            masterId = Number(masterId);
+
+            if (favorites.includes(masterId)) {
+                favorites = favorites.filter(id => id !== masterId);
             } else {
-                favorites.push(masterPhone);
+                favorites.push(masterId);
             }
-            localStorage.setItem(
-                "favorites",
-                JSON.stringify(favorites)
-            );
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
             renderFavorites();
         }
 
 
         function renderFavorites() {
+            document.querySelectorAll(".favorite-btn").forEach(btn => {
+                const id = Number(btn.dataset.id);
 
-            document
-                .querySelectorAll(".favorite-btn")
-                .forEach(btn => {
-                    const phone = btn.dataset.phone;
-
-                    if (favorites.includes(phone)) {
-
-                        btn.textContent = "❤️ В обраному";
-                        btn.classList.add("active");
-
-                    } else {
-                        btn.textContent = "⭐ В обране";
-                        btn.classList.remove("active");
-                    }
-                });
+                if (favorites.includes(id)) {
+                    btn.textContent = "❤️ В обраному";
+                    btn.classList.add("active");
+                } else {
+                    btn.textContent = "⭐ В обране";
+                    btn.classList.remove("active");
+                }
+            });
         }
                                 
                                            
