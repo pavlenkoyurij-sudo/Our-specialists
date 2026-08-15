@@ -288,6 +288,10 @@
             });
         }
 
+
+            // Логіка модального вікна
+        const modal = document.getElementById("masterModal");
+
          function openMasterModal(id) {
             // Знаходимо майстра в масиві за id
             const master = masters.find(m => m.id === id);
