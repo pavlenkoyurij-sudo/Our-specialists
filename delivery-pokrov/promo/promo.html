@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тут ти зможеш додати свою анкету до каталогу перевізників Покрова</title>
+    <link rel="icon" type="image/png"href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+    
+
+    <body>
+
+        <!--- блок навігації по сторінкам--->
+        <nav class="blog-nav">
+            <a href="../index-delivery.html" class="back-to-home-btn">🏠На головну</a>
+            
+        </nav>
+
+        <!---головна обгортка для статті, щоб можна було змінювати її стилі --->
+        <main class="promo-container">
+            <h1 class="promo-title">👋 Вітаю! Додайте свою анкету до каталогу перевізників Покрова. Це безкоштовно і займе лише кілька хвилин.
+                <small><br>📅 Ваша анкета буде розміщена на сайті протягом 365 днів.</small>
+            </h1>
+                
+                <!-- Нова обгортка для Юлі та форми -->
+                <div class="promo-content">
+                    
+                    <!-- Юля ЗЛІВА -->
+                    <div id="yulya">
+                        <img src="promo.png" id="yulya-img" alt="Помічниця Юля">
+                    </div>
+
+                    
+            
+
+
+            
+                    <!-- Форма СПРАВА -->
+                    <div class="application-container">
+                        <form id="applicationForm" class="application-form">
+
+                            <input type="text" id="carriersCity" value="Покров" readonly>
+                            
+                            <input type="text" id="carriersName" placeholder="👤 Ваше ім'я">
+                            
+                                <select id="carriersCategory">
+                                <option value="">🚛 Оберіть категорію транспорту</option>
+                                <option value="extra-small">Кур'єрська доставка</option>
+                                <option value="small">до 1 тонни</option>                                   
+                                <option value="medium">до 5 тонн</option>
+                                <option value="large">до 10 тонн</option>
+
+                                <option value="extra-large">більше 10 тонн</option>
+                                <option value="dumper">Самоскиди</option>
+                                <option value="bus">Пасажирські перевезення</option>  
+                                <option value="reefer">Рефрижератори</option>
+                                <option value="special-vehicles">Спецтехніка</option>
+
+
+
+
+                            </select>
+                                
+                            <input
+                                type="tel"
+                                id="carriersPhone"
+                                placeholder="📞 Ваш телефон:+380000000005"
+                                pattern="\+380[0-9]{9}"
+                                required>
+                            
+                            <input
+                                type="number"
+                                id="carriersExperience"
+                                min="1"
+                                max="50"
+                                placeholder="Досвід роботи, років:"
+                                required>
+
+
+                            <textarea id="carriersDescription" placeholder="📝 Короткий опис послуг"></textarea>
+                            <input type="file" id="carriersPhoto" accept="image/*">
+                            
+
+                            <button 
+                            type="button" 
+                            onclick="console.log('Кнопку додавання анкети натиснуто'); registerCarriers()" class="register-carriers-btn">
+                                ✔️Зберегти
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            
+                
+
+            
+
+        </main>
+
+
+        
+
+        
+
+         <!--посилання до супербази-->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            
+        <script>
+            const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
+            const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
+
+            const supabaseClient = window.supabase.createClient(
+                supabaseUrl,
+                supabaseKey
+            );
+
+
+            //Функція запису користувацьких даних
+            async function registerCarriers() {
+
+                console.log('функція запустиася'); // Додано для відстеження виклику функції
+
+
+                
+                const carriersName = document.getElementById('carriersName').value;
+                const carriersCity = document.getElementById('carriersCity').value;
+                const carriersCategory = document.getElementById('carriersCategory').value;
+               
+                const carriersPhone = document.getElementById('carriersPhone').value;
+                const carriersExperience = document.getElementById('carriersExperience').value;
+                const carriersDescription = document.getElementById('carriersDescription').value;
+                const photoFile = document.getElementById('carriersPhoto').files[0];
+                if (photoFile && photoFile.size > 2 * 1024 * 1024) {
+                    alert("❌ Фото має бути не більше 2 МБ");
+                }
+
+                let photoUrl = "";
+                if (photoFile) {
+                    const fileName = Date.now() + "_" + photoFile.name;
+
+                    const { error: uploadError } = await supabaseClient.storage
+                        .from("master-photos")
+                        .upload("carriers/" + fileName, photoFile);
+
+                    if (uploadError) {
+                        alert("❌ Не вдалося завантажити фото!");
+                        console.error(uploadError);
+                        return;
+                    }
+
+                    const { data } = supabaseClient.storage
+                        .from("master-photos")
+                        .getPublicUrl("carriers/" + fileName);
+                    photoUrl = data.publicUrl
+                }
+
+
+
+
+                if (!carriersName || !carriersCategory || !carriersPhone || !carriersDescription) {
+                    alert('❌ Будь ласка, заповніть всі обов\'язкові поля перед відправкою анкети.'); 
+                    return; // Зупиняємо виконання функції, якщо обов'язкові поля не заповнені
+                }
+
+                const { error } = await supabaseClient
+                    .from('carriers')
+                    .insert([
+                        {
+                            
+                            name: carriersName,
+                            city: carriersCity,
+                            category: carriersCategory,
+                            phone: carriersPhone,
+                            experience: carriersExperience,
+                            description: carriersDescription,
+                            photo: photoUrl,
+                            approved: false // Додати поле approved зі значенням false
+                        }
+                    ]);
+                if (error) {
+                    console.error('Помилка при додаванні анкети:', error);
+                    console.log('carriersCategory =', carriersCategory); // Додано для відстеження помилки
+                       
+
+                } else {
+                    alert('🎉Дякуємо! Вашу анкету успішно отримано!\n\nПісля перевірки вона з\'явиться в каталозі спеціалістів Покрова');
+                    document.getElementById('applicationForm').reset();
+                    
+                }
+
+            }
+
+         </script>           
+        
+            
+        
+
+        
+        
+
+
+
+          <!--посилання до супербази-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+
+    </body>
+    
+</html>

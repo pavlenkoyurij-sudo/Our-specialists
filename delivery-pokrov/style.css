@@ -1,0 +1,1096 @@
+
+
+
+
+
+body {
+    background-image: url("background-image.jpeg");
+    background-size: cover;/*розтягуємо картинку на весь екран*/
+    background-position: center;/*центруємо картинку по вертикалі і горизонталі*/
+    background-attachment: fixed;/*фіксуємо артинку на місці, щоб не рухався зі скроломк*/
+    background-color: #2c2c2c;/*фон бекграунду поки завантажується картинка*/
+    margin: 0;/*занулюємо стандартні відступик*/
+    padding: 0;/*занулюємо стандартні відступик*/
+}
+
+
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 40px;
+    position: relative;
+}
+        /*затемнюючий фон шрифта заголовка*/
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.65);
+    z-index: 1;
+}
+
+.hero >*{
+    position: relative;
+    z-index: 2;
+    color: #2b2b2b;
+}
+
+.hero a {
+    font-size: 26px;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background: #ff6600;
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+
+}
+
+.hero a:hover {
+    background: #e65c00;
+    transform: translateY(-2px);
+}
+
+    /*заголовок хіро*/
+.hero h1 {
+    font-size: 48px;
+}
+
+    /*підзаголовок*/
+.hero p {
+    font-size: 22px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+
+
+
+
+.advantages-title {
+    color: black;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    font-size: 28px;
+    margin-top: 40px;
+    text-align: center;/*центрує заголовок*/
+
+}
+
+    /*розміщення карток  - чому нас обирають*/
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto;/*ставимо автоматичні відступи по боках*/
+}
+
+    /*стилі карток  - чому нас обирають*/
+.adv-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.adv-card:hover {
+    transform: translateY(-5px);
+}
+
+    /*===ФУТЕР===*/
+footer {
+    font-size: 18px;
+    background: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+    /*кнопка - прокрутка догори*/
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50%;
+    background: #ff6600;
+    color: white;
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+} 
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scrollToTopBtn:hover {
+    transform: scale(1.1);
+}
+
+    /*секція майстрів*/
+.carriers-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.carriers-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+        /*кнопки фільтрів*/
+.filters button {
+    border: none;
+    border-radius: 5px;
+    background: #ff6600;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+    .filters button:hover {
+        background: #e65c00;
+        transform: translateY(-2px);
+    }
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+
+    .carrier-grid,
+    #carriersGrid,
+    .carriers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+        /*картки майстрів*/
+    .carrier-card {
+        font-size: 18px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        transition: 0.3s;
+        text-align: left;
+        overflow: hidden;
+    }
+
+    .carrier-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #555;
+        font-size: 0.9rem;
+    }
+
+    .carrier-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+
+
+    .carrier-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .carriers-card h3 {
+        margin-bottom: 10px;
+    }
+
+    
+
+    .carriers-selection {
+        font-size: 28px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+        /*плавний скрол*/
+    html {
+        scroll-behavior: smooth;
+    }
+
+        /*кнопки фільтру*/
+    .call-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background: #ff6600;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .call-btn:hover {
+        background: #e65c00;
+    }
+
+    .carrier-card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+    }
+
+    .carrier-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    #searchInput {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    #searchInput:hover {
+        background-color: rgba(0,0,0,0.2);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+
+    .join-section {
+        padding: 60px 20px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    
+         /*кнопка додатипайстра*/
+    .add-carriers-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+        padding: 14px 24px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .whatsapp-btn {
+        background: #25d366;
+    }
+
+    .whatsapp-btn:hover {
+        background: #20ba56;
+    }
+
+    .viber-btn {
+        background-color: #665cac; 
+    }
+
+    .viber-btn:hover {
+        background-color: #5a5290;
+    }
+
+
+
+
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .join-list {
+        display: inline-block;
+        text-align: left;
+        line-height: 1.8;
+    }
+
+        /*кнопка фаворитів - в обраному стані*/
+    .favorite-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+        /*кнопка фаворитів - не в обраному стані*/
+    .favorite-btn {
+        background: #444;
+        color: white;
+    }
+
+    .favorite-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+
+        /*поведінка кнопки при наведені курсору : кнопка фаворитів - в обраному стані*/
+    .favorite-btn.active {
+        background: ff6600;
+        color: white;
+    }
+
+    /*силі блоку : НАШІ ПАРТНЕРИ*/
+    .partners-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .partners-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Маленький стильний акцент під заголовком */
+    .partners-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
+
+    .partners-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .partner-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+
+
+        /* Налаштування самого зображення всередині картки */
+    .partner-card img {
+        display: block;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    /* Ефект при наведенні мишкою */
+    .partner-card:hover {
+        transform: translateY(-5px); /* Картка акуратно піднімається вгору */
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
+    }
+
+
+    .partner-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+        
+  
+
+        /* Ефект при наведенні */
+    .partner-btn:hover {
+        background-color: #e65c00; 
+        transform: translateX(-50%) scale(1.05); 
+    }
+
+    .seo-text {
+        text-align: center;
+        line-height: 1.8;
+        max-width: 800px;
+        padding: 60px 20px;
+        margin: 0 auto;
+        color: #444;
+    }
+
+    .seo-text h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+
+    .seo-text p {
+        font-size: 18px;
+    }
+
+                /*--- стилі блоку відгуків ---*/
+
+         /*--- головна секція: центруємо тект, додаємо відступи ---*/
+    .reviews-section {
+        padding: 50px 20px;
+        text-align: center;
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+
+    }
+
+        /*--- підзаголовок ---*/
+    .reviews-subtitle {
+        color: #141313;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+
+        /*--- контейнен(флекс-бокс) ---*/
+    .reviews-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto 40px;
+    }
+
+      /*--- сама картка відгуку ---*/
+    .review-card {
+        background-color: white;
+        border: 1px solid #e5e5e5;
+        border-radius: 16px;
+        padding: 20px;
+        
+        width: 100%;
+        max-width: 450px;
+        text-align: left;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+            /*--- верхня частина картки ---*/
+    .review-heder {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+
+    .review-autor {
+        color: #334;
+        font-size: 16px;
+    }
+
+
+    .review-stars {
+        color: #ffcc00;/*--- золотий колір зірочок ---*/
+        font-size: 14px;
+    }
+
+    .review-data {
+        color: #998;
+        font-size: 12px;
+        align-self: flex-end;
+    }
+
+    .review-text {
+        color: #181818;
+        font-size: 15px;
+        line-height: 1.6;/*--- збільшуємо відстант між рядками, щоб легче читалося ---*/
+        font-style: italic;/*--- робимо текст курсивом бо пряма мова відгуку ---*/
+        margin-bottom: 15px;
+    }
+
+
+        /*--- кнопка залишити відгук ---*/
+    .leave-review-btn {
+        display: inline-block;
+        padding: 14px 28px;
+        background-color: #25d366;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;/*--- прибираєма стандартне підкреслення посилання ---*/
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(102, 116, 107, 0.3);/*--- тінь кнопки ---*/
+        transition: all 0.2s ease;
+    }
+
+    .leave-review-btn:hover {
+        background-color: #20ba5a;
+        transform: rotateY(-2px);
+        box-shadow: 0 6px 20px rgba(48, 53, 49, 0.4);/*--- тінь стає глибшою ---*/
+    }
+
+        /*--- ефект при кліку ---*/
+    .leave-review-btn:active {
+        transform: translateY(-2px);        
+    }
+
+
+
+        /*--- контейнер для картки блогу ---*/
+    .blog-promo-section {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+
+        /*--- карткa ---*/
+    .blog-promo-card {
+        background-color: rgba(255,255,255,0.75);
+        backdrop-filter: blur(1px);
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 8px  32px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255,255,255,0.4);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        /*--- карткa:hover ---*/
+    .blog-promo-card:hover {
+        transform: translateY(4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+        /*---  ---*/
+    .blog-badge {
+        background-color: #ff6600;
+        color: #fff;
+        padding: 6px 12px;
+        font-size: 12px;
+
+        font-weight: bold;
+        border-radius: 20px;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .blog-promo-content h2 {
+        font-size: 24px;
+        color: #2c2c2c;
+        margin-bottom: 15px;
+    }
+        /*---  ---*/
+    .blog-promo-content p {
+        font-weight: 18px;
+        line-height: 1.6;
+        color: #444;
+        max-width: 700px;
+        margin: 0 auto 25px auto;
+    }
+
+    .blog-promo-btn {
+        display: inline-block;
+        padding: 14px 35px;
+        background: linear-gradient(135deg, #ff6600, #ff8533);
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(255,102,0,0.3);
+        transition: all 0.2s ease;
+    }
+
+
+    .blog-promo-btn:hover {
+        background: linear-gradient(135deg, #e65c00, #ff6600);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255,102,0,0.5);
+    }
+
+    .blog-promo-btn:active {
+        transform: translateY(0);
+    }
+
+
+     /*--- плавний перехід від чторінки до сторінки ---*/
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .premium-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #f7c948, #ff9800);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .premium-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }    
+
+    /* Базові налаштування для шапки */
+    header {
+        display: flex;
+        justify-content: space-between; /* Розносить заголовок вліво, меню вправо */
+        align-items: center;
+        padding: 15px 40px;
+        position: sticky; /* Шапка плавно залишається вгорі при скролі */
+        top: 0;
+        z-index: 1000;
+        
+        /* М'який ефект скла, який не перетягує увагу */
+        background: rgba(255, 255, 255, 0.85); 
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        
+        /* Тонка акуратна лінія знизу замість грубої тіні */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+        transition: all 0.3s ease;
+    }
+
+/* Назва сайту в шапці */
+header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c3e50; /* Спокійний темно-синій/сірий колір замість чисто чорного */
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Контейнер для посилань */
+header nav {
+    display: flex;
+    gap: 20px; /* Відступи між посиланнями, щоб код дихав */
+    align-items: center;
+}
+
+/* Стилі для звичайних посилань */
+header nav a {
+    text-decoration: none;
+    color: #555; /* М'який колір для другорядних елементів */
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+/* Ефект наведення на звичайні посилання */
+header nav a:hover {
+    color: #2c3e50;
+    background: rgba(0, 0, 0, 0.04); /* Легке підсвічування фону */
+}
+
+/* Хак для важливих кнопок: виділяємо "Нікополь" та "Зв'язатися" */
+/* Посилання на Нікополь робимо трохи акцентним, але спокійним */
+header nav a[href*="nikopol"] {
+    background: rgba(243, 156, 18, 0.1); /* Легкий натяк на твій фірмовий теплий колір */
+    color: #e67e22;
+    font-weight: 600;
+}
+
+header nav a[href*="nikopol"]:hover {
+    background: rgba(243, 156, 18, 0.18);
+    color: #d35400;
+}
+
+/* Кнопка "Зв'язатися" (mailto) — робимо акуратною контурною кнопочкою */
+header nav a[href^="mailto:"] {
+    border: 1px solid #f39c12;
+    color: #f39c12;
+    font-weight: 600;
+}
+
+header nav a[href^="mailto:"]:hover {
+    background: #f39c12;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.2);
+}
+
+/* Адаптивність: якщо екран маленький (телефон), переносимо меню під заголовок */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+        text-align: center;
+    }
+    
+    header nav {
+        flex-wrap: wrap; /* Дозволяє посиланням переноситися на новий рядок на смартфонах */
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    header nav a {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+}
+
+ /*силі блоку : НАШІ ПЕРЕВІЗНИКИ*/
+    .delivery-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .delivery-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Маленький стильний акцент під заголовком */
+    .delivery-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
+
+    .delivery-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .delivery-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+
+
+        /* Налаштування самого зображення всередині картки */
+    .delivery-card img {
+        display: block;
+        width: 95%;
+        border-radius: 15px;
+    }
+
+    /* Ефект при наведенні мишкою */
+    .delivery-card:hover {
+        transform: translateY(-5px); /* Картка акуратно піднімається вгору */
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Тінь стає трохи глибшою */
+    }
+
+
+    .delivery-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+        background-color: #ff6600;
+        color: white;
+        padding: 14px 28px;
+
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s;
+    }
+
+        
+  
+
+        /* Ефект при наведенні */
+    .delivery-btn:hover {
+        background-color: #e65c00; 
+        transform: translateX(-50%) scale(1.05); 
+    }
+
+    /* стилі футера */
+    footer a{
+        color: white;
+        text-decoration: none;
+    }
+
+    footer a:hover{
+        color: orange;
+    }
+
+    /* Стиль для помаранчевої кнопки в навігації */
+    .nav-btn-highlight {
+        background-color: #ff6600; /* Помаранчевий колір */
+        color: #ffffff !important;   /* Білий текст */
+        padding: 8px 16px;
+        border-radius: 20px;       /* Закруглення як у банера */
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
+
+    /* Ефект при наведенні курсору */
+    .nav-btn-highlight:hover {
+        background-color: #e65c00; /* Трохи темніший при наведенні */
+        box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+        transform: translateY(-1px);
+    }
+
+    /*силі блоку : НАШІ АКЦІЇ*/
+    .hot-section {
+        padding: 60px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hot-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Маленький стильний акцент під заголовком */
+    .hot-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 110%; /* Лінія на половину довжини тексту */
+         height: 2px;
+        background-color: #0056b3; /* Можна взяти синій колір з логотипу Віконда */
+        border-radius: 2px;
+    }
+
+    .hot-card {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px;
+        background-color: #f9f9f9; /* Можна додати легкий фоновий колір */
+        border: 2px dashed #ff6600;  /* Або стильну рамку для акценту */
+        border-radius: 15px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hot-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px; /* Трохи збільшили радіус для гармонії */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+
+    /* Збільшені параметри */
+    font-size: 1.8rem;        /* Збільшено шрифт (було стандартне або ~1rem) */
+    padding: 24px 50px;       /* Збільшено відступи (було 14px 28px) */
+}
+
+    .hot-btn:hover {
+        background-color: #e65c00;
+        transform: scale(1.05);
+    }
+
+    .hot-banner {
+        width: 100%; /* Можна змінити на бажану ширину */
+        height: auto;
+        
+        border-radius: 8px;
+        margin: 0 auto 20px auto; /* Центруємо банер і додаємо відступ знизу */
+    
+    }
+
+    .city-dropdown {/* Контейнер для випадаючого списку міст */
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        margin: 20px auto;
+    }
+
+    #citySearch {
+        width: 100%;
+        padding: 13px 18px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        font-size: 16px;
+        background: white;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .city-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 5px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .city-dropdown:focus-within .city-list {
+        display: block;
+    }
+
+    .city-list a {
+        display: block;
+        padding: 12px 18px;
+        color: #2c2c2c;
+        text-decoration: none;
+    }
+
+    .city-list a:hover {
+        background: #ff6600;
+        color: white;
+    }
+
+    /* Модальне вікно */
+    .carrier-modal {
+        border: none;
+        border-radius: 16px;
+        padding: 25px;
+        width: 90%;
+        max-width: 550px;
+        max-height: 85vh; /* Якщо текст великий, вікно не вийде за межі екрана */
+        overflow-y: auto; /* Вмикає скрол усередині вікна */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Затемнення та розмиття фону */
+    .carrier-modal::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-close-icon {
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #666;
+    }
+
+    .modal-photo {
+        width: 450px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+
+    .modal-desc {
+        white-space: pre-line; /* Зберігає абзаци та переноси рядків */
+        line-height: 1.5;
+        font-size: 1.05rem;
+        color: #333;
+    }
+
+    /* Обрізаємо опис у картці до 3 рядків, щоб усі картки були рівними */
+    .carrier-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Курсор-вказівник для картки, щоб юзер розумів, що на неї можна натиснути */
+    .carrier-card {
+        cursor: pointer;
+    }
+
+    #modalCarrierCallBtn {
+        align-self: center; /* Вирівнює саме кнопку по центру, не розтягуючи */
+        width: fit-content;  /* Ширина суворо під розмір тексту та іконки */
+        padding: 10px 25px; /* Зручні відступи для натискання */
+    }
+
+
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+        <!--СЕО ОПИС - МЕГА ВАЖЛИВО-->
+    <meta name="description"
+    content="Каталог перевізників нашого міста. Ваттажівки, спецтехніка, пасажирські перевезення в Покрова.">
+    
+    <title>Перевізники Покрова | Каталог транспорту</title>
+
+    <!--відсилка до стилів-->
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/png"href="images/favicon.png">
+    <link rel="canonical" href="https://" />
+
+
+</head>
+
+
+
+
+<body>
+
+    <header>
+        <h2>Перевізники каталогу майстрів Покрова</h2>
+        <nav>
+                <a href="../index.html" class="nav-btn-highlight">До каталогу майстрів</a>
+                <a href="#carriers">Наші перевізники</a>
+                
+                <a href="#join-carriers-section">Контакти</a>
+                <a href="promo/promo.html" class="nav-btn-highlight">Стати перевізником</a>
+                
+                
+                <a href="blog/index.html">🔨Наш блог</a>
+                
+        </nav>
+            
+
+    </header>
+
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <h1>
+                ⏱️Доставимо вчасно
+            </h1>
+
+            
+
+            <a href="#carriers" class="hero-btn">
+                🚛 Підібрати вантажівку
+            </a>
+
+            
+
+        </section>    
+        
+
+
+
+
+        <section class="advantages-section">
+
+             <h2 class="advantages-title">
+                Чому нас обирають?
+            </h2>
+
+            <div class="advantages">
+                <div class="adv-card">
+                    <div class="adv-icon">🎯</div>
+
+                    <p>
+                        Максимум інформації на одному ресурсі
+                    </p>
+            </div>   
+                
+                
+
+                <div class="adv-card">
+                    <div class="adv-icon">🚀</div>
+
+                    <p>
+                        Найповніша картотека
+                    </p>
+                </div>
+
+                <div class="adv-card">
+                    <div class="adv-icon">🛻</div>
+
+                    <p>
+                        Швидкий пошук вантажівки
+                    </p>
+                </div>   
+            
+            </div>
+        </section>
+
+        <div class="city-dropdown">
+
+         
+
+        <input
+            type="text"
+            id="citySearch"
+            placeholder="🔎 Перевізники в інших містах"
+            readonly
+        >
+
+            <div class="city-list">
+
+                <a href="https://pavlenkoyurij-sudo.github.io/-builders-zap/delivery/index-delivery.html">
+                    📍 Запоріжжя
+                </a>
+
+                <a href="https://pavlenkoyurij-sudo.github.io/-builders-zap/dnipro/delivery/index-delivery.html">📍 Дніпро</a>
+
+                <a href="https://pavlenkoyurij-sudo.github.io/-builders-zap/krivyi-r%D1%96g/delivery/index-delivery.html">
+                    📍 Кривий Ріг
+                </a>
+
+                <a href="">
+                    📍 Покров
+                </a>
+
+            </div>
+        </div>
+
+
+        <section id="carriers" class="carriers-section">
+            <h2>Наші перевізники</h2>
+
+            
+
+
+
+
+
+
+            <div class="filters">
+                <button onclick="filterCarriers('all')">Всі</button>
+                <button onclick="filterCarriers('extra-small')">Кур'єрська доставка</button>
+                <button onclick="filterCarriers('small')">до 1 тонни</button>
+                <button onclick="filterCarriers('medium')">до 5 тонн</button>
+                <button onclick="filterCarriers('large')">до 10 тонн</button>
+                <button onclick="filterCarriers('extra-large')">більше 10 тонн</button>
+                <button onclick="filterCarriers('dumper')">Самоскиди</button>
+                <button onclick="filterCarriers('bus')">Пасажирські перевезення</button>
+                <button onclick="filterCarriers('reefer')">Рефрижератори</button>
+                <button onclick="filterCarriers('special-vehicles')">Спецтехніка</button>
+            </div>
+
+
+            <div class="carriers-grid" id="carriersGrid"></div> <!--відсилка до масиву майстрів в ява скрипт-->
+
+
+        
+
+
+
+
+
+
+
+        </section>
+
+
+        <section class="hot-section">
+            <h2 class="hot-title">
+                Додатися до катадогу перевізників Покрова!
+            </h2>
+            
+            <div class="hot-container">
+                        <!--картку добавлено -->
+                <div class="hot-card">
+                    <!--Місце для банера партнера-->
+                    
+                    <a href="promo/promo.html"
+                    class="hot-btn whatsapp-btn">
+                        💬 Заповнити картку перевізника безкоштовно
+                    </a>
+                    
+                </div>              
+            </div>
+        </section>
+
+
+
+        
+
+
+
+        
+
+
+        <section class="seo-text">
+            <h2>
+                Каталог перевізників Покрова.
+            </h2>
+
+            <p>
+                На нашому сайті ви можете знайти перевізників за різним типом класифікації вантажівок Покрова: малотонажні (до 1 тонни), середньотонажні (1-5 та 5-10 тонн) та важкотонажні (більше 10 тонн), самосвали, курєрські доставки, пасажирські перевезення. Окремо ми вказуємо і спец техніку. 
+                Ми поступово поповнюємо каталог новими перевіреними перевізниками.
+            </p>
+           
+            <p>
+                Каталог перевізників Покрова — це сучасний сервіс, де перевізник, за бажанням, отримує власну вебсторінку з описом послуг, фотографіями і контактною інформацією. Це допомагає клієнтам зробити більш усвідомлений вибір, а перевізникам — знайти нових замовників.
+            </p>    
+        
+        </section>
+
+
+
+        
+
+
+
+
+
+
+        <section class="join-section" id="join-carriers-section">
+            <h2>Ви перевізник?</h2>
+
+            <p>
+                Якщо ви надаєте послуги з перевезення вантажів і хочете приєднатися до каталогу перевізників Покрова, зв'яжіться з нами!
+            </p>
+
+            <a href="https://wa.me/380957996024?text=Добрий%20день!%20Хочу%20приєднатися%20до%20каталогу%20перевізників%20Покрова."
+                class="add-carriers-btn whatsapp-btn">
+                💬 Додати свою анкету через WhatsApp
+            </a>
+
+
+
+            
+
+
+
+            <p>
+                І ми безкоштовно додамо вашу анкету до каталогу.
+            </p>
+            <ul class="join-list">
+                <li>👤Ваше ім'я</li>
+                <li>📝Короткий опис: вантажопідйомність, тип вантажівки,<br> розміри вантажного відсіку, маршрути</li>
+                <li>📞Контактний номер телефону</li>
+                <li>🏆Досвід роботи</li>
+            </ul>
+
+            <p class="join-note">
+                ⏱️ Додавання анкети займає лише хвилину.
+            </p>
+        </section>
+
+
+
+        
+
+        
+
+    </main>    
+
+
+    
+    
+    
+
+    
+
+
+
+    <button id="scrollToTopBtn" aria-label="Наверх">
+            ▲
+        </button> <!--кнопка наверх-->
+
+
+
+
+
+
+    <footer id="contacts"> 
+        <h2>Майстри та будівельники нашого міста</h2>
+        <p>Розділ: перевізники</p>
+
+         
+        <p>
+            <a href="https://www.facebook.com/share/1bSVVMVqst/"
+                target="_blank"
+                rel="noopener noreferrer">
+                📘Наш Facebook
+            </a>
+        </p>  
+
+        <p>
+            <a href="mailto:yurij.webdev@gmail.com" title="Написати нам">
+                📧E-mail
+            </a>
+        </p>
+
+            <p>📍Покров, Україна</p>
+
+            <p>© Майстри та будівельники нашого міста 2026</p>
+
+            <p><small style="color: #ff8533;">Правила публікації матеріалів:</small></p>
+            <p><small style="color: #ff8533;">Ми поважаємо авторські права та права інших людей. Якщо будь-який матеріал на сайті порушує ваші права, <br>повідомте нас через контакти, і ми оперативно його перевіримо та, за потреби, виправимо або видалимо. T:+380957996024</small></p>
+
+
+
+    </footer>
+
+        <!--посилання до супербази-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <!--посилання до ява скрипта-->
+    <script src="script.js"></script> 
+
+
+        
+
+
+</body>
+</html>
