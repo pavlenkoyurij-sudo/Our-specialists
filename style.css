@@ -992,10 +992,10 @@ header nav a[href^="mailto:"]:hover {
     }
 
     .modal-photo {
-        width: 100px;
-        height: 100px;
+        width: 450px;
+        height: auto;
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 8px;
         margin: 0 auto;
     }
 
