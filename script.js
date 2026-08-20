@@ -292,21 +292,7 @@
                 page:""
             },
 
-              {
-                id: 20,
-                isPremium: false,
-                name: "Сергій",
-                profession: "ПЕРЕВІЗНИКИ",
-                category: "trucker",
-                rating: 4.8,
-                reviews: 8,
-                experience: 15,
-                city: "Покров",
-                phone: "+380974145323",
-                description: "Надаємо послуги з перевезення (Газель, Івеко) вантажів, маршрути: Покров - Дніпро, Покров - Кривий Ріг. Також перевозимо вантажі по Покрову та навколишнім селам",
-                photo: "images/driver.jpeg",
-                page:""
-            },
+             
 
             {
                 id: 30,
