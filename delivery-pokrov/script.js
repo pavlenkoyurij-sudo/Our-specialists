@@ -12,7 +12,7 @@
             const { data, error } = await supabaseClient
                 .from("carriers")
                 .select("*")
-                .eq("city", "Покров")
+                .eq("city", "Покров")    
                 .eq("approved", true);
             if (error) {
                 console.error(error);
@@ -72,6 +72,12 @@
             
         };
 
+        // 1. Оголошуємо елементи DOM на початку
+        
+        const carrierModal = document.getElementById("carrierModal");
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+
         function renderCarriers() {
             
 
@@ -83,7 +89,7 @@
 
                 carriersGrid.innerHTML += `
                     <div class="carrier-card"
-                        data-category="${carrier.category}">
+                        data-category="${carrier.category}" onclick="openCarrierModal(${carrier.id})">
 
                         <img src="${carrier.photo || 'images/default.jpeg'}"
                             alt="${carrier.name}"
@@ -109,12 +115,10 @@
                             📞Подзвонити
                         </a>
 
-                        <button
-                            class="favorite-btn"
-                            data-id="${carrier.id}"
-                            onclick="toggleFavorite(${carrier.id})">
+                        <button class="favorite-btn" 
+                                data-id="${carrier.id}" 
+                                onclick="toggleFavorite(event, ${carrier.id})"> <!-- Додали 'event' -->
                             ⭐ В обране
-
                         </button>
                         
                         ${carrier.isPremium && carrier.page ? `
@@ -142,40 +146,59 @@
         
         
 
-                //Функція додавання та видалення перевізників з фаворитів
-        function toggleFavorite(carrierId) {
+              // 2. Відкриття модалки
+        function openCarrierModal(id) {
+            const carrier = carriers.find(c => c.id === id);
+            if (!carrier || !carrierModal) return;
+
+            document.getElementById("modalCarrierName").textContent = carrier.name;
+            document.getElementById("modalCarrierProfession").textContent = "🛠️ " + (categoryNames[carrier.category] || carrier.category);
+            document.getElementById("modalCarrierCity").textContent = "📍 " + carrier.city;
+            document.getElementById("modalCarrierDescription").textContent = carrier.description || "Опис відсутній.";
+            document.getElementById("modalCarrierCallBtn").href = "tel:" + carrier.phone;
+            
+            const photoEl = document.getElementById("modalCarrierPhoto");
+            photoEl.src = carrier.photo || 'images/default.jpeg';
+            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
+
+            carrierModal.showModal();
+        }
+
+        // 3. Додавання в обране
+        function toggleFavorite(event, carrierId) {
+            event.stopPropagation();
+            
+            carrierId = Number(carrierId);
             if (favorites.includes(carrierId)) {
-                favorites = favorites.filter(
-                item => item !== carrierId
-            );
+                favorites = favorites.filter(id => id !== carrierId);
             } else {
                 favorites.push(carrierId);
             }
-            localStorage.setItem(
-                "favorites",
-                JSON.stringify(favorites)
-            );
+            localStorage.setItem("favorites", JSON.stringify(favorites));
             renderFavorites();
         }
 
-
+        // 4. Відображення обраних
         function renderFavorites() {
+            document.querySelectorAll(".favorite-btn").forEach(btn => {
+                const id = Number(btn.dataset.id);
+                if (favorites.includes(id)) {
+                    btn.textContent = "❤️ В обраному";
+                    btn.classList.add("active");
+                } else {
+                    btn.textContent = "⭐ В обране";
+                    btn.classList.remove("active");
+                }
+            });
+        }
 
-            document
-                .querySelectorAll(".favorite-btn")
-                .forEach(btn => {
-                    const id = Number(btn.dataset.id);
-                            // ПЕРЕТВОРЮЄМО РЯДРК З ДАТАСЕТ В ЧИСЛО
-                    if (favorites.includes(id)) {
-
-                        btn.textContent = "❤️ В обраному";
-                        btn.classList.add("active");
-
-                    } else {
-                        btn.textContent = "⭐ В обране";
-                        btn.classList.remove("active");
-                    }
-                });
+        // 5. Закриття модалки по кліку на фон (з перевіркою існування елемента)
+        if (carrierModal) {
+            carrierModal.addEventListener("click", (e) => {
+                if (e.target === carrierModal) {
+                    carrierModal.close();
+                }
+            });
         }
                                 
                                            
