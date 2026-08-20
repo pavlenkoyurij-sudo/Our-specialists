@@ -307,6 +307,23 @@
 
     </footer>
 
+    <dialog id="carrierModal" class="carrier-modal">
+        <div class="modal-content">
+            <button class="modal-close-icon" onclick="document.getElementById('carrierModal').close()">&times;</button>
+            <img id="modalCarrierPhoto" src="" alt="" class="modal-photo">
+            <h3 id="modalCarrierName"></h3>
+            <p id="modalCarrierProfession" class="modal-prof"></p>
+            <p id="modalCarrierCity" class="modal-city"></p>
+            <hr>
+            <h4>Деталі:</h4>
+            <p id="modalCarrierDescription" class="modal-desc"></p>
+            <hr>
+            <a id="modalCarrierCallBtn" href="" class="call-btn">📞 Подзвонити</a>
+        </div>
+    </dialog>
+
+    
+
         <!--посилання до супербази-->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <!--посилання до ява скрипта-->
