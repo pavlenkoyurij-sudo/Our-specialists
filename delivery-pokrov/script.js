@@ -1,3 +1,4 @@
+
         const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
         const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
 
@@ -82,41 +83,43 @@
 
                 carriersGrid.innerHTML += `
                     <div class="carrier-card"
-                        data-category="${master.category}"
-                        onclick="openMasterModal(${master.id})">
+                        data-category="${carrier.category}">
 
-                        <img src="${master.photo}"
-                            alt="${master.name}"
+                        <img src="${carrier.photo || 'images/default.jpeg'}"
+                            alt="${carrier.name}"
                             onerror="this.onerror=null; this.src='images/default.jpeg';"> 
                             
-                        <h3>${master.name}</h3>
+                        <h3>${carrier.name}</h3>
 
-                        <p>🛠️${categoryNames[master.category] || master.category}</p>
-                        <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
+                        <p>🛠️${categoryNames[carrier.category] || carrier.category}</p>
+                        <p class="carrier-description">📜${carrier.description || 'Надання професійних послуг в нашому місті'}</p>
 
-                        <p>⭐${master.rating}
-                        (${master.reviews} відгуків)
+                        <p>⭐${carrier.rating}
+                        (${carrier.reviews} відгуків)
                         </p>
 
                         <p>
-                            🏆${master.experience} років досвіду
+                            🏆${carrier.experience} років досвіду
                         </p>
 
-                        <p>📍${master.city}</p>
+                        <p>📍${carrier.city}</p>
                             
                         <a class="call-btn"
-                            href="tel:${master.phone}"
-                            onclick="event.stopPropagation()">
+                            href="tel:${carrier.phone}">
                             📞Подзвонити
                         </a>
 
-                        <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
-                         ⭐ В обране
+                        <button
+                            class="favorite-btn"
+                            data-id="${carrier.id}"
+                            onclick="toggleFavorite(${carrier.id})">
+                            ⭐ В обране
+
                         </button>
                         
-                        ${master.isPremium && master.page ? `
+                        ${carrier.isPremium && carrier.page ? `
                         <a class="premium-btn"
-                        href="${master.page}">
+                        href="${carrier.page}">
                         Детальніше:
                          </a>
                         ` : ""}
@@ -135,107 +138,52 @@
 
 
 
-        loadMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
+        loadCarriers(); //рендерить список перевізників -const carrierGrid = document.getElementById("carrierGrid");
         
         
 
-                //Функція додавання та видалення майстрів з фаворитів
-        function toggleFavorite(event, masterId) {
-            // Зупиняємо вспливання події, щоб не відкривалася модалка
-            event.stopPropagation();
-
-            masterId = Number(masterId);
-
-            if (favorites.includes(masterId)) {
-                favorites = favorites.filter(id => id !== masterId);
+                //Функція додавання та видалення перевізників з фаворитів
+        function toggleFavorite(carrierId) {
+            if (favorites.includes(carrierId)) {
+                favorites = favorites.filter(
+                item => item !== carrierId
+            );
             } else {
-                favorites.push(masterId);
+                favorites.push(carrierId);
             }
-
-            localStorage.setItem("favorites", JSON.stringify(favorites));
+            localStorage.setItem(
+                "favorites",
+                JSON.stringify(favorites)
+            );
             renderFavorites();
         }
 
 
         function renderFavorites() {
-            document.querySelectorAll(".favorite-btn").forEach(btn => {
-                const id = Number(btn.dataset.id);
 
-                if (favorites.includes(id)) {
-                    btn.textContent = "❤️ В обраному";
-                    btn.classList.add("active");
-                } else {
-                    btn.textContent = "⭐ В обране";
-                    btn.classList.remove("active");
-                }
-            });
+            document
+                .querySelectorAll(".favorite-btn")
+                .forEach(btn => {
+                    const id = Number(btn.dataset.id);
+                            // ПЕРЕТВОРЮЄМО РЯДРК З ДАТАСЕТ В ЧИСЛО
+                    if (favorites.includes(id)) {
+
+                        btn.textContent = "❤️ В обраному";
+                        btn.classList.add("active");
+
+                    } else {
+                        btn.textContent = "⭐ В обране";
+                        btn.classList.remove("active");
+                    }
+                });
         }
-
-
-
-        // Логіка модального вікна
-        const modal = document.getElementById("masterModal");
-
-        function openMasterModal(id) {
-            // Знаходимо майстра в масиві за id
-            const master = masters.find(m => m.id === id);
-            if (!master) return;
-
-            // Отримуємо зрозумілу назву категорії зі словника categoryNames
-            const categoryTitle = categoryNames[master.category] || master.profession || master.category;
-
-            // Заповнюємо дані в модалці
-            document.getElementById("modalName").textContent = master.name;
-            document.getElementById("modalProfession").textContent = "🛠️ " + categoryTitle; // 👈 Вже не буде undefined!
-            document.getElementById("modalCity").textContent = "📍 " + master.city;
-            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
-            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
-            
-            const photoEl = document.getElementById("modalPhoto");
-            photoEl.src = master.photo || 'images/default.jpeg';
-            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
-
-            // Відкриваємо вікно
-            modal.showModal();
-        }
-
-        function closeMasterModal() {
-            modal.close();
-        }
-
-        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.close();
-            }
-        });
                                 
                                            
 
 
 
 
-            //Функція пошуку
-        function searchMaster() {
-
-            const input = document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase();
-
-            const cards = document.querySelectorAll(".master-card");
-
-            cards.forEach(card => {
-
-                const title = card.innerText.toLowerCase();
-
-                if (title.includes(input)) {
-                    card.style.display = "";
-                } else {
-                    card.style.display = "none"
-                }
-            });
-        }
+       
 
 
         
@@ -267,17 +215,3 @@
                 behavior: "smooth"//забезпечує плавний скролінг
             });
         });
-
-         function filterCities() {
-            const search = document
-                .getElementById("citySearch")
-                .value
-                .toLowerCase();
-
-            document.querySelectorAll(".city-link").forEach(link => {
-                link.style.display =
-                    link.textContent.toLowerCase().includes(search)
-                        ? "block"
-                        : "none";
-            });
-        }
