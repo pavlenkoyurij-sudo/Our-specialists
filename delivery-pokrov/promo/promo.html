@@ -137,6 +137,13 @@
                     alert("❌ Фото має бути не більше 2 МБ");
                 }
 
+                if (!carriersName || !carriersCategory || !carriersPhone || !carriersDescription) {
+                    alert('❌ Будь ласка, заповніть всі обов\'язкові поля перед відправкою анкети.'); 
+                    return; // Зупиняємо виконання функції, якщо обов'язкові поля не заповнені
+                }
+
+                
+
                 let photoUrl = "";
                 if (photoFile) {
                     const fileName = Date.now() + "_" + photoFile.name;
@@ -160,10 +167,7 @@
 
 
 
-                if (!carriersName || !carriersCategory || !carriersPhone || !carriersDescription) {
-                    alert('❌ Будь ласка, заповніть всі обов\'язкові поля перед відправкою анкети.'); 
-                    return; // Зупиняємо виконання функції, якщо обов'язкові поля не заповнені
-                }
+                
 
                 const { error } = await supabaseClient
                     .from('carriers')
