@@ -97,7 +97,7 @@
                             
                         <h3>${carrier.name}</h3>
 
-                        <p>🛠️${categoryNames[carrier.category] || carrier.category}</p>
+                        <p>🚛 <strong>Категорія транспорту:</strong> ${categoryNames[carrier.category] || carrier.category}</p>
                         <p class="carrier-description">📜${carrier.description || 'Надання професійних послуг в нашому місті'}</p>
 
                         <p>⭐${carrier.rating}
