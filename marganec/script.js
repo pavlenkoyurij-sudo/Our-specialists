@@ -42,6 +42,22 @@
                 page:"furniture-serg/furniture-serg.html"
             },
 
+              {
+                id: 3,
+                isPremium: false,
+                name: "Сергій",
+                profession: "Монтаж покрівлі",
+                category: "roof-installer",
+                rating: 4.8,
+                reviews: 1,
+                experience: 20,
+                city: "Марганець",
+                phone: "+380951848130",
+                description: "Покрівельні роботи, утеплення фасадів, монтаж металочерепиці, бітумна черепиця, монтаж водосточних систем, кроквяні системи, профнастил, монтажні роботи, продаж матеріалів",
+                photo: "images/roof.jpeg",
+                page:""
+            },
+
             {
                 id: 30,
                 isPremium: true,
