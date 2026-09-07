@@ -292,7 +292,37 @@
                 page:""
             },
 
-             
+             {
+                id: 20,
+                isPremium: false,
+                name: "Артем",
+                profession: "Будівельник",
+                category: "builder",
+                rating: 4.8,
+                reviews: 1,
+                experience: 16,
+                city: "Покров",
+                phone: "+380969871930",
+                description: "Надаю будівельні послуги: Монтаж гіпсокартону, укладка лінолеуму та ламінату, откоси, поклейка шпалер, шпакльовка, внутрішнє оздоблення, натяжна стеля",
+                photo: "images/artem-build.jpeg",
+                page:""
+            },
+
+            {
+                id: 21,
+                isPremium: false,
+                name: "Артем",
+                profession: "Натяжна стеля",
+                category: "stretch-ceilings",
+                rating: 4.8,
+                reviews: 1,
+                experience: 16,
+                city: "Покров",
+                phone: "+380666572533",
+                description: "Надаю будівельні послуги: Монтаж натяжної стелі з гарантією, монтаж гіпсокартону, укладка лінолеуму та ламінату, откоси, поклейка шпалер, шпакльовка, внутрішнє оздоблення",
+                photo: "images/artem-potolok.jpeg",
+                page:""
+            },
 
             {
                 id: 30,
