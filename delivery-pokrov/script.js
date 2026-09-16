@@ -151,10 +151,16 @@
             const carrier = carriers.find(c => c.id === id);
             if (!carrier || !carrierModal) return;
 
-            document.getElementById("modalCarrierName").textContent = carrier.name;
-            document.getElementById("modalCarrierProfession").textContent = "🛠️ " + (categoryNames[carrier.category] || carrier.category);
-            document.getElementById("modalCarrierCity").textContent = "📍 " + carrier.city;
-            document.getElementById("modalCarrierDescription").textContent = carrier.description || "Опис відсутній.";
+            document.getElementById("modalId").textContent = "🆔 " + carrier.id;
+            document.getElementById("modalCarrierName").textContent = "👤 Ім'я: " + carrier.name;
+            document.getElementById("modalCarrierProfession").textContent = "🛞 Категорія транспорту: " + (categoryNames[carrier.category] || carrier.category);
+            if (carrier.experience) {
+                document.getElementById("modalCarrierExperience").textContent = "🏆 Досвід: " + carrier.experience + " років";
+            } else {
+                document.getElementById("modalCarrierExperience").textContent = "🏆 Досвід: не вказано";
+            }
+            document.getElementById("modalCarrierCity").textContent = "📍 Місто: " + carrier.city;
+            document.getElementById("modalCarrierDescription").textContent = (carrier.description || "Опис відсутній.");
             document.getElementById("modalCarrierCallBtn").href = "tel:" + carrier.phone;
             
             const photoEl = document.getElementById("modalCarrierPhoto");
