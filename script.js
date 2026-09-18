@@ -330,7 +330,7 @@
                 name: "Володимир",
                 profession: "Будівельник",
                 category: "builder",
-                rating: 4.7,
+                rating: 4.8,
                 reviews: 1,
                 experience: 13,
                 city: "Покров",
