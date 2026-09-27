@@ -1,4 +1,36 @@
-      
+
+                const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
+        const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
+
+        const supabaseClient = window.supabase.createClient(
+            supabaseUrl,
+            supabaseKey
+        );
+          
+
+        async function loadMasters() {
+            const { data, error } = await supabaseClient
+                .from("masters")
+                .select("*")
+                .eq("city", "Марганець")
+                .eq("approved", true);
+            if (error) {
+                console.error(error);
+               return;
+            }
+            masters = data;
+            //Функція сортування майстрів по рейтингу
+            masters.sort((a, b) => b.rating - a.rating);
+
+            renderMasters();
+
+        }
+            
+
+        //loadMasters();
+        
+        
+        
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
                 const show =
@@ -8,93 +40,14 @@
             });
         }
 
-
-        const masters = [
-            
-            {
-                id: 1,
-                isPremium: false,
-                name: "Олег",
-                profession: "Будівельник",
-                category: "builder",
-                rating: 4.8,
-                reviews: 5,
-                experience: 25,
-                city: "Марганець, Нікополь",
-                phone: "+380993612256",
-                description: "Облицювання стін керамічною плиткою, утеплення, стяжка, штукатурка, шпакльовка, монтаж гіпсокартонних конструкцій, монтаж електропроводки, сантехнічні роботи та інші види будівельних робіт",
-                page:""
-            },
-
-            {
-                id: 2,
-                isPremium: true,
-                name: "Сергій",
-                profession: "Збиральник меблів",
-                category: "furniture-assembler",
-                rating: 4.7,
-                reviews: 1,
-                experience: 5,
-                city: "Марганець",
-                phone: "+380666816046",
-                description: "Професійний ремонт та збирання меблів — швидко, якісно, з гарантією! Потрібно зібрати нові меблі або дати друге життя старим? Ми подбаємо про все!Збірка корпусних меблів: шафи, ліжка, столи, кухні, комоди. Ремонт м’яких меблів: дивани, крісла, заміна наповнювача, перетяжка. Виправлення механізмів, заміна фурнітури, регулювання фасадів. Виїзд майстра додому. Швидко та акуратно. Гарантія на всі види робіт. Телефонуйте прямо зараз: 066 681 60 46. Пишіть у Viber. Працюємо по Марганці, Городище, Червоногригоровка, Максимова. Ваші меблі — в надійних руках!",
-                photo: "images/furniture.jpeg",  
-                page:"furniture-serg/furniture-serg.html"
-            },
-
-              {
-                id: 3,
-                isPremium: false,
-                name: "Сергій",
-                profession: "Монтаж покрівлі",
-                category: "roof-installer",
-                rating: 4.8,
-                reviews: 1,
-                experience: 20,
-                city: "Марганець",
-                phone: "+380951848130",
-                description: "Покрівельні роботи, утеплення фасадів, монтаж металочерепиці, бітумна черепиця, монтаж водосточних систем, кроквяні системи, профнастил, монтажні роботи, продаж матеріалів",
-                photo: "images/roof.jpeg",
-                page:""
-            },
-
-              {
-                id: 4,
-                isPremium: false,
-                name: "Сергій",
-                profession: "Будівельники",
-                category: "builder",
-                rating: 4.8,
-                reviews: 1,
-                experience: 20,
-                city: "Марганець",
-                phone: "+380951848130",
-                description: "Надаю будівельні послуги: кладка цегли та блоків, дома з бруса, покрівельні роботи, утеплення, обшивка фасадів, внутрішнє оздоблення, каналізація, водопостачання, електрика та багато інших будівельних робіт",
-                photo: "images/roof-build.jpeg",
-                page:""
-            },
-
-            {
-                id: 30,
-                isPremium: true,
-                name: "Шукаємо майстрів",
-                photo: "images/noCard.jpeg",
-                profession: "Ми чекаємо саме вас",
-                category: "noCard",
-                rating:"",
-                reviews:"",
-                experience:"",
-                city: "Марганець",
-                phone: "380686479588",
-                description: "Зателефонуйте нам або напишіть",
-                page:"https://pavlenkoyurij-sudo.github.io/Our-specialists/marganec/index.html#join-master-section"
-            },
+      
+                
 
 
-        ];
 
-         //Функція сортування майстрів по рейтингу
-        masters.sort((a, b) => b.rating - a.rating);
+        
+
+         
 
         //місцеве сховище дл фаворитів
         let favorites = JSON.parse(
@@ -103,59 +56,92 @@
         
 
         const masterGrid = document.getElementById("masterGrid");
+        const categoryNames = {
+            plumber: "Сантехнік",
+            electrician: "Електрик",
+            builder: "Будівельник",
+            welder: "Зварювальник",
+            painter: "Маляр",
+            tiler: "Плиточник",
+            handyman: "Майстер на годину",
+            "heating-installer": "Опалення",
+            "window-installer": "Встановлення вікон",
+            "door-installer": "Встановлення дверей",
+            "stretch-ceilings": "Натяжна стеля",
+            "interior-finisher": "Внутрішнє оздоблення",
+            "roof-installer": "Монтаж покрівлі",
+            "exterior-worker": "Фасадні роботи",
+            "landscaping-services": "Благоустрій території",
+            "furniture-assembler": "Меблі",
+            "conditioner-installer": "Монтаж кондиціонерів",
+            cleaning: "Прибирання",
+            worker: "Вантажники",
+            
+        };
 
         function renderMasters() {
-    masterGrid.innerHTML = "";
 
-    masters.forEach(master => {
-        masterGrid.innerHTML += `
-            <div class="master-card"
-                data-category="${master.category}"
-                onclick="openMasterModal(${master.id})">
+            masterGrid.innerHTML = "";
 
-                <img src="${master.photo}"
-                    alt="${master.name}"
-                    onerror="this.onerror=null; this.src='images/default.jpeg';"> 
-                    
-                <h3>${master.name}</h3>
-
-                <p>🛠️${master.profession}</p>
-                <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
-
-                <p>⭐${master.rating} (${master.reviews} відгуків)</p>
-                <p>🏆${master.experience} років досвіду</p>
-                <p>📍${master.city}</p>
-                    
-                <a class="call-btn"
-                    href="tel:${master.phone}"
-                    onclick="event.stopPropagation()">
-                    📞Подзвонити
-                </a>
-
-                <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
-                ⭐ В обране
-            </button>
+            masters.forEach(master => {
                 
-                ${master.isPremium && master.page ? `
-                <a class="premium-btn"
-                   href="${master.page}"
-                   onclick="event.stopPropagation()">
-                    Детальніше:
-                </a>
-                ` : ""}
-            </div>
-        `; 
-    });
 
-    renderFavorites();
-}
+                masterGrid.innerHTML += `
+                    <div class="master-card"
+                        data-category="${master.category}"
+                        onclick="openMasterModal(${master.id})">
+
+                        <img src="${master.photo}"
+                            alt="${master.name}"
+                            onerror="this.onerror=null; this.src='images/default.jpeg';"> 
+                            
+                        <h3>${master.name}</h3>
+
+                        <p>🛠️${categoryNames[master.category] || master.category}</p>
+                        <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
+
+                        <p>⭐${master.rating}
+                        (${master.reviews} відгуків)
+                        </p>
+
+                        <p>
+                            🏆${master.experience} років досвіду
+                        </p>
+
+                        <p>📍${master.city}</p>
+                            
+                        <a class="call-btn"
+                            href="tel:${master.phone}"
+                            onclick="event.stopPropagation()">
+                            📞Подзвонити
+                        </a>
+
+                        <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
+                         ⭐ В обране
+                        </button>
+                        
+                        ${master.isPremium && master.page ? `
+                        <a class="premium-btn"
+                        href="${master.page}">
+                        Детальніше:
+                         </a>
+                        ` : ""}
+                        
+
+                            
+                    </div>
+                `; 
+            });
+
+            renderFavorites();
+        }
       
         //onerror="this.onerror=null; this.src='images/default.jpeg';" - це атрибут зображення, який забезпечує заміну зображення на "images/default.jpeg" у випадку помилки завантаження (наприклад, якщо вказане зображення не існує або недоступне). Це дозволяє уникнути відображення порожнього місця або помилки замість зображення майстра.
 
 
 
 
-        renderMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
+        loadMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
         
         
 
@@ -190,8 +176,50 @@
                 }
             });
         }
+
+
+
+        // Логіка модального вікна
+        const modal = document.getElementById("masterModal");
+
+        function openMasterModal(id) {
+            // Знаходимо майстра в масиві за id
+            const master = masters.find(m => m.id === id);
+            if (!master) return;
+
+            // Отримуємо зрозумілу назву категорії зі словника categoryNames
+            const categoryTitle = categoryNames[master.category] || master.profession || master.category;
+
+            // Заповнюємо дані в модалці
+            document.getElementById("modalId").textContent = "🆔 " + master.id;
+            document.getElementById("modalName").textContent = "👤 Ім'я: " + master.name;            
+            document.getElementById("modalProfession").textContent = "🛠️ Спеціалізація: " + categoryTitle; // 👈 Вже не буде undefined!
+            document.getElementById("modalExperience").textContent = "🏆 Досвід: " + master.experience + " років";
+            document.getElementById("modalCity").textContent = "📍 Місто: " + master.city;
+            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
+            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
+            
+            const photoEl = document.getElementById("modalPhoto");
+            photoEl.src = master.photo || 'images/default.jpeg';
+            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
+
+            // Відкриваємо вікно
+            modal.showModal();
+        }
+
+        function closeMasterModal() {
+            modal.close();
+        }
+
+        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
                                 
                                            
+
 
 
 
@@ -218,39 +246,7 @@
         }
 
 
-       // Логіка модального вікна
-        const modal = document.getElementById("masterModal");
-
-        function openMasterModal(id) {
-            // Знаходимо майстра в масиві за id
-            const master = masters.find(m => m.id === id);
-            if (!master) return;
-
-            // Заповнюємо дані в модалці
-            document.getElementById("modalName").textContent = master.name;
-            document.getElementById("modalProfession").textContent = "🛠️ " + master.profession;
-            document.getElementById("modalCity").textContent = "📍 " + master.city;
-            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
-            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
-            
-            const photoEl = document.getElementById("modalPhoto");
-            photoEl.src = master.photo || 'images/default.jpeg';
-            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
-
-            // Відкриваємо вікно
-            modal.showModal();
-        }
-
-        function closeMasterModal() {
-            modal.close();
-        }
-
-        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.close();
-            }
-        });
+        
 
 
 
@@ -279,10 +275,6 @@
                 behavior: "smooth"//забезпечує плавний скролінг
             });
         });
-
-    
-        
-        
         
      
             
