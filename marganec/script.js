@@ -91,9 +91,8 @@
                         data-category="${master.category}"
                         onclick="openMasterModal(${master.id})">
 
-                        <img src="${master.photo}"
-                            alt="${master.name}"
-                            onerror="this.onerror=null; this.src='images/default.jpeg';"> 
+                        <img src="${master.photo || 'images/default.jpeg'}"
+                            alt="${master.name}">
                             
                         <h3>${master.name}</h3>
 
