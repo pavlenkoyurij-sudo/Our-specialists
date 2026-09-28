@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тут ти зможеш додати свою анкету до каталогу майстрів та будівельнтків Нікополя</title>
+    <link rel="icon" type="image/png"href="../images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+    
+
+    <body>
+
+        <!--- блок навігації по сторінкам--->
+        <nav class="blog-nav">
+            <a href="../index.html" class="back-to-home-btn">🏠На головну</a>
+            
+        </nav>
+
+        <!---головна обгортка для статті, щоб можна було змінювати її стилі --->
+        <main class="promo-container">
+            <h1 class="promo-title">👋 Вітаю! Додайте свою анкету до каталогу майстрів Нікополя. Це безкоштовно і займе лише кілька хвилин.<small><br>📅 Ваша анкета буде розміщена на сайті протягом 365 днів.</small></h1>
+
+                <!-- Нова обгортка для Юлі та форми -->
+                <div class="promo-content">
+                    
+                    
+
+                    
+            
+
+
+            
+                    <!-- Форма СПРАВА -->
+                    <div class="application-container">
+                        <form id="applicationForm" class="application-form">
+
+                            <input type="text" id="masterCity" value="Нікополь" readonly>
+                            
+                            <input type="text" id="masterName" placeholder="👤 Ваше ім'я">
+                            
+                                <select id="masterCategory">
+                                <option value="">🪚Оберіть спеціальність</option>
+                                <option value="plumber">Сантехніки</option>
+                                <option value="electrician">Електрики</option>
+                                <option value="builder">Будівельники</option>
+                                <option value="welder">Зварювальники</option>
+                                <option value="painter">Маляри</option>
+                                <option value="tiler">Плиточники</option>
+                                <option value="handyman">Майстер на годину</option>
+                                <option value="heating-installer">Опалення</option>
+                                <option value="window-installer">Встановлення вікон</option>
+                                <option value="door-installer">Встановлення дверей</option>
+                                <option value="stretch-ceilings">Натяжна стеля</option>
+                                <option value="interior-finisher">Внутрішнє оздоблення</option>
+                                <option value="roof-installer">Монтаж покрівлі</option>
+                                <option value="exterior-worker">Фасадні роботи</option>
+                                <option value="landscaping-services">Благоустрій території</option>
+                                <option value="furniture-assembler">Збирання та ремонт меблів</option>
+                                <option value="conditioner-installer">Монтаж кондиціонерів</option>
+                                <option value="cleaning">Прибирання</option>
+                                <option value="worker">ВАНТАЖНИКИ</option>
+                                
+                            </select>
+                            <!---<input type="text" id="masterCategory" placeholder="🪚 Ваша спеціальність">--->
+                            <input
+                                type="tel"
+                                id="masterPhone"
+                                placeholder="📞 Ваш телефон:+380000000005"
+                                pattern="\+380[0-9]{9}"
+                                required>
+                            <!--<input type="text" id="masterPhone" placeholder="📞 Ваш телефон">-->
+                            <!--<label>Досвід роботи, років:</label> - ім'я текстового простору-->
+                            <input
+                                type="number"
+                                id="masterExperience"
+                                min="1"
+                                max="50"
+                                placeholder="Досвід роботи, років:"
+                                required>
+                            
+                            
+                            <textarea id="masterDescription" placeholder="📝 Короткий опис послуг"></textarea>
+                            <input type="file" id="masterPhoto" accept="image/*">
+                            
+
+                            <button 
+                            type="button" 
+                            onclick="console.log('Кнопку додавання анкети натиснуто'); registerMaster()" class="register-master-btn">
+                                ✔️Зберегти
+                            </button>
+
+                        </form>
+                    </div>
+
+                </div>
+            
+
+
+            
+
+        </main>
+
+
+        
+
+        
+
+         <!--посилання до супербази-->
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+            
+        <script>
+            const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
+            const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
+
+            const supabaseClient = window.supabase.createClient(
+                supabaseUrl,
+                supabaseKey
+            );
+
+
+            //Функція запису користувацьких даних
+            async function registerMaster() {
+
+                console.log('функція запустиася'); // Додано для відстеження виклику функції
+
+
+                //const masterPhoto = document.getElementById('masterPhoto').value;
+                const masterName = document.getElementById('masterName').value;
+                const masterCity = document.getElementById('masterCity').value;
+                const masterCategory = document.getElementById('masterCategory').value;
+               
+                const masterPhone = document.getElementById('masterPhone').value;
+                const masterExperience = document.getElementById('masterExperience').value;
+                const masterDescription = document.getElementById('masterDescription').value;
+                const photoFile = document.getElementById('masterPhoto').files[0];
+                if (photoFile && photoFile.size > 2 * 1024 * 1024) {
+                    alert("❌ Фото має бути не більше 2 МБ");
+                }
+
+                let photoUrl = "";
+                if (photoFile) {
+                    const fileName = Date.now() + "_" + photoFile.name;
+
+                    const { error: uploadError } = await supabaseClient.storage
+                        .from("master-photos")
+                        .upload(fileName, photoFile)
+
+                    if (uploadError) {
+                        alert("❌ Не вдалося завантажити фото!");
+                        console.error(uploadError);
+                        return;
+                    }
+
+                    const { data } = supabaseClient.storage
+                        .from("master-photos")
+                        .getPublicUrl(fileName);
+                    photoUrl = data.publicUrl
+                }
+
+
+
+
+                if (!masterName || !masterCategory || !masterPhone || !masterDescription) {
+                    alert('❌ Будь ласка, заповніть всі обов\'язкові поля перед відправкою анкети.'); 
+                    return; // Зупиняємо виконання функції, якщо обов'язкові поля не заповнені
+                }
+
+                const { error } = await supabaseClient
+                    .from('masters')
+                    .insert([
+                        {
+                            
+                            name: masterName,
+                            city: masterCity,
+                            category: masterCategory,
+                            phone: masterPhone,
+                            experience: masterExperience,
+                            description: masterDescription,
+                            photo: photoUrl,
+                            approved: false // Додати поле approved зі значенням false
+                        }
+                    ]);
+                if (error) {
+                    console.error('Помилка при додаванні анкети:', error);
+                    console.log('masterCategory =', masterCategory); // Додано для відстеження помилки
+                       
+
+                } else {
+                    alert('🎉Дякуємо! Вашу анкету успішно отримано!\n\nПісля перевірки вона з\'явиться в каталозі спеціалістів Запоріжжя');
+                    document.getElementById('applicationForm').reset();
+                    
+                }
+
+            }
+
+         </script>           
+        
+            
+        
+
+        
+        
+
+
+
+          <!--посилання до супербази-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
+
+    </body>
+</html>
