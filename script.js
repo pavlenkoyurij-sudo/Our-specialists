@@ -1,5 +1,37 @@
 
-      
+     
+           const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
+        const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
+
+        const supabaseClient = window.supabase.createClient(
+            supabaseUrl,
+            supabaseKey
+        );
+          
+
+        async function loadMasters() {
+            const { data, error } = await supabaseClient
+                .from("masters")
+                .select("*")
+                .eq("city", "Покров")
+                .eq("approved", true);
+            if (error) {
+                console.error(error);
+               return;
+            }
+            masters = data;
+            //Функція сортування майстрів по рейтингу
+            masters.sort((a, b) => b.rating - a.rating);
+
+            renderMasters();
+
+        }
+            
+
+        //loadMasters();
+        
+        
+        
         function filterMasters(category) {
             document.querySelectorAll(".master-card").forEach(card => {
                 const show =
@@ -9,356 +41,14 @@
             });
         }
 
-
-        const masters = [
-            {
-                id: 1,
-                isPremium: false,
-                name: "Володя",
-                profession: "Сантехнік",
-                category: "plumber",
-                rating: 4.9,
-                reviews: 8,
-                experience: 12,
-                city: "Покров",
-                phone: "+380508434698",
-                description: "Водопостачання: Прокладання труб, встановлення лічильників, фільтрів, запірної арматури. Каналізація: Монтаж внутрішніх і зовнішніх систем зливу. Опалення: Встановлення радіаторів, теплої підлоги, циркуляційних насосів, котлів та розширювальних баків. Монтаж обладнання: Підключення ванн, душових кабін, унітазів, умивальників, змішувачів, бойлерів та пральних машин." 
-            },
+      
+                
 
 
-           {
-                id: 2,
-                isPremium: false,
-                name: "Олексій",
-                profession: "Електрик",
-                category: "electrician",
-                rating: 4.8,
-                reviews: 9,
-                experience: 10,
-                city: "Покров",
-                phone: "+380956617006",
-                description: "Заміна та встановлення: Монтаж розеток, вимикачів, датчиків руху та освітлювальних приладів (люстри, бра, точкові світильники). Підключення техніки: Безпечне приєднання варильних поверхонь, духових шаф, бойлерів та пральних машин. Монтаж електропроводки: Повна або часткова заміна кабелів у квартирі, будинку чи офісі (здійснюється відповідно до плану навантажень). Робота зі щитовими: Збирання електрощитів, встановлення автоматичних вимикачів (автоматів), пристроїв захисного відключення (ПЗВ) та стабілізаторів напруги"
 
-            },
+        
 
-            {
-                id: 3,
-                isPremium: true,
-                name: "Володимир",
-                profession: "Будівельник",
-                category: "builder",
-                rating: 4.9,
-                reviews: 12,
-                experience: 11,
-                city: "Покров",
-                phone: "+380964851722",
-                description: "Фундаментні роботи: влаштування фундаментів різних типів (стрічковий, монолітний, плити), гідроізоляція та утеплення.Зведення конструкцій: кладка стін і перегородок (цегла, газоблок), монтаж плит перекриття, заливка армопоясів.Покрівельні роботи: монтаж кроквяної системи, укладання покрівельного матеріалу (металочерепиця, профнастил тощо) та утеплення даху.Фасадні роботи: утеплення фасадів (мінеральна вата, пінопласт), декоративне оздоблення (короїд, сайдинг), монтаж водостічних систем.Внутрішні оздоблювальні роботи: штукатурка, шпаклівка, гіпсокартонні конструкції, укладання плитки та підлогових покриттів, малярні роботи.Інженерні мережі: розведення електрики, монтаж систем опалення, водопостачання та каналізації",
-                page:"gallery-volodymyr-builder/volodymyr-builder.html"
-            },
-
-
-            {
-                id: 4,
-                isPremium: false,
-                name: "Володимир",
-                profession: "Зварювальник",
-                category: "welder",
-                rating: 4.7,
-                reviews: 8,
-                experience: 8,
-                city: "Покров",
-                phone: "+380508434698",
-                description: "Монтаж: збирання каркасів, ангарів, сходів та балконів на об'єкті. Створення парканів, навісів, альтанок та решіток."
-            },
-
-            {
-                id: 5,
-                isPremium: false,
-                name: "Станіcлав",
-                profession: "Майстер на годину",
-                category: "handyman",
-                rating: 4.8,
-                reviews: 13,
-                experience: 21,
-                city: "Покров",
-                phone: "+380976944195",
-                description: "Дверні та замкові роботи:Встановлення або заміна замків, личинок, ручок на вхідних чи міжкімнатних дверях.Электрика: замена или ремонт розеток, выключателей, установка люстр, бра, подключение бытовой техники.Сантехника: устранение протечек, замена смесителей, сифонов, подключение стиральных машин, прочистка засоров.Сборка и ремонт мебели: сборка шкафов, кроватей, столов, комодов, регулировка фасадов, замена фурнитуры.Мелкий монтаж: навешивание зеркал, полок, картин, телевизоров, установка карнизов, жалюзи, монтаж плинтусов."
-           },
-
-           
-            {
-                id: 6,
-                isPremium: false,
-                name: "Євгеній",
-                profession: "Маляр",
-                category: "painter",
-                rating: 4.8,
-                reviews: 16,
-                experience: 7,
-                city: "Покров",
-                phone: "+380972859328",
-                description: "Підготовка поверхонь: очищення від старих матеріалів, ґрунтування.Чорнова обробка: шпаклювання для усунення дефектів, нанесення армуючої сітки та вирівнювання.Фінішне оздоблення: нанесення декоративної штукатурки, фарбування різними складами (водоемульсійними, акриловими тощо) або наклеювання шпалер"
-            },
-
-             {
-                id: 7,
-                isPremium: false,
-                name: "Володимир",
-                profession: "Плиточник",
-                category: "tiler",
-                rating: 4.7,
-                reviews: 9,
-                experience: 11,
-                city: "Покров",
-                phone: "+380508434698",
-                description: "Підготовчі роботи: демонтаж старої плитки, вирівнювання стін або заливка стяжки підлоги, ґрунтування, а також монтаж гідроізоляції для вологих зон.Безпосереднє укладання: монтаж плитки будь-якої складності (пряме, діагональне, укладання «ялинкою» або модульних елементів, як-от гексагони).Додаткові послуги: точна різка плитки, шліфування кромок під кутом 45° (запив під кут), висвердлювання отворів під розетки та комунікації, монтаж декоративних елементів (фризи, бордюри).Затирання швів: фінішна обробка швів цементними або епоксидними сумішами, герметизація примикань (ванни, піддони) силіконом.Ціни на послуги формуються за квадратний метр (укладання) або за погонний метр (різка, шліфування, встановлення куточків)."
-            },
-
-            {
-                id: 8,
-                isPremium: false,
-                name: "Володя",
-                profession: "Майстер з монтажу систем опалення",
-                category: "heating-installer",
-                rating: 4.8,
-                reviews: 17,
-                experience: 7,
-                city: "Покров",
-                phone: "+380964851722",
-                description: "Гідравлічний розрахунок (вибір діаметрів труб, налаштування тиску та підбір циркуляційних насосів).Розведення трубопроводу (металопластик, поліпропілен, зшитий поліетилен).Встановлення радіаторів, конвекторів (у тому числі внутрішньопідлогових).Монтаж систем теплої підлоги (водяної).Встановлення запірної арматури, терморегуляторів та систем автоматики."
-            },
-
-            {
-                id: 9,
-                isPremium: false,
-                name: "Володимир",
-                profession: "Майстер з монтажу вікон",
-                category: "window-installer",
-                rating: 4.9,
-                reviews: 6,
-                experience: 10,
-                city: "Покров",
-                phone: "+380508434698",
-                description: "Підготовчі роботи: Виїзд на об'єкт, зняття точних розмірів, консультація щодо вибору профілю та матеріалів.Демонтаж: Обережне видалення старих рам та підвіконь без руйнування стін.Підготовка отвору: Очищення від пилу та сміття, обробка поверхонь.Монтаж рами: Фіксація вікна в отворі за допомогою анкерів та дюбелів із суворим контролем рівня.Герметизація та теплоізоляція: Заповнення монтажних швів піною.Встановлення комплектуючих: Фіксація відливів, підвіконь, склопакетів та стулок.Регулювання: Налаштування фурнітури (цапф, петель) для плавного відкривання та щільного притиску"
-            },
-
-             {
-                id: 10,
-                isPremium: true,
-                name: "Станіслав",
-                profession: "Майстер з монтажу дверей",
-                category: "door-installer",
-                rating: 5.0,
-                reviews: 19,
-                experience: 21,
-                city: "Покров",
-                phone: "+380976944195",
-                description: "Підготовчі роботи: Проведення точних вимірів, оцінка рівня стін та підлоги, допомога у виборі матеріалів та підготовка дверного отвору.Монтаж конструкції: Складання рами, надійна фіксація дверної коробки в отворі за допомогою монтажної піни та кріплень.Робота з фурнітурою: Точна врізка петель, замків, клямок, встановлення ручок та дверних доводчиків.Оздоблення: Встановлення доборів (для широких стін), монтаж лиштви та герметизація щілин.Налаштування та перевірка: Регулювання механізмів для плавного відкривання/закривання без тертя чи провисань",
-                page:"gallery-stanislav-door-installer/stanislav-door-installer.html"
-            },
-
-            {
-                id: 11,
-                isPremium: true,
-                name: "Влад",
-                profession: "Натяжна стеля",
-                category: "stretch-ceilings",
-                rating: 4.9,
-                reviews: 11,
-                experience: 7,
-                city: "Покров",
-                phone: "+380687611313",
-                description: "виїзд на замір: Фахівець оцінює площу, визначає кути та перепади висот, допомагає обрати фактуру (глянець, мат, сатин).Консультація та розрахунок: Складання кошторису з урахуванням матеріалу (ПВХ-плівка чи тканина) та складності конструкції.Розкрій полотна: Підготовка матеріалу за індивідуальними розмірами приміщення на спеціальному виробництві.2. Безпосередній монтажМонтаж профілю (багета): Кріплення алюмінієвого або пластикового каркаса по периметру стін.Закладні під освітлення: Встановлення платформ під люстри, точкові світильники чи монтаж прихованих карнизів.Прогрів та натяжка полотна: Використання теплової гармати для розігріву плівки та її натягнення на профіль (для ПВХ).Монтаж освітлення: Вирізання отворів під світильники, їх підключення та ізоляція.3. Фінішні роботиМаскування щілин: Встановлення декоративної стрічки (заглушки) по периметру, яка приховує технічний зазор між стелею та стіною.",
-                page:"gallery-stretch-ceilings/vlad-stretch-ceilings.html"
-            },
-
-            {
-                id: 12,
-                isPremium: false,
-                name: "Женя",
-                profession: "Майстер з внутрішнього оздоблення",
-                category: "interior-finisher",
-                rating: 4.8,
-                reviews: 9,
-                experience: 11,
-                city: "Покров",
-                phone: "+380972859328",
-                description: "Оздоблення стін та стель: Фарбування, обклеювання шпалерами, нанесення декоративної штукатурки.Роботи з підлоговим покриттям: Укладання ламінату, паркетної дошки, вінілової плитки чи лінолеуму, монтаж плінтусів."
-            },
-
-              {
-                id: 13,
-                isPremium: false,
-                name: "Андрій - ПП Водоприлад-Сервіс",
-                profession: "Майстер з монтажу систем опалення",
-                category: "heating-installer",
-                rating: 4.7,
-                reviews: 3,
-                experience: 14,
-                city: "Покров",
-                phone: "+380508092967",
-                description: "Монтаж опалення (котли, конвектори), оформлення пільгового тарифу, встановлення лічильників день/ніч. Опалення під ключ",
-                page:""
-            },
-
-              {
-                id: 14,
-                isPremium: false,
-                name: "Віталій",
-                profession: "Зварювальник",
-                category: "welder",
-                rating: 4.7,
-                reviews: 1,
-                experience: 4,
-                city: "Покров",
-                phone: "+380509793089",
-                description: "Пропоную послуги по зварюванню металоконструкцій різної складності! Ваш матеріал та фото бажаної  металоконструкції, моя робота. Надаю послуги зварювальника в Покрові",
-                page:""
-            },
-
-              {
-                id: 15,
-                isPremium: false,
-                name: "Андрій",
-                profession: "Натяжна стеля",
-                category: "stretch-ceilings",
-                rating: 4.7,
-                reviews: 1,
-                experience: 11,
-                city: "Покров",
-                phone: "+380957787462",
-                description: "Монтаж натяжних стель Premium якості, будь-якої складності. Т: 0957787462, 0969948550 ",
-                page:""
-            },
-
-              {
-                id: 16,
-                isPremium: false,
-                name: "Сергій",
-                profession: "Вантажник",
-                category: "worker",
-                rating: 4.6,
-                reviews: 1,
-                experience: 7,
-                city: "Покров",
-                phone: "+380974517199",
-                description: "Надаємо послуги вантажників, група. Надаємо послуги з обрізки дерев.",
-                page:""
-            },
-
-              {
-                id: 17,
-                isPremium: false,
-                name: "Тетяна",
-                profession: "Прибирання, (клінінг)",
-                category: "cleaning",
-                rating: 4.7,
-                reviews: 1,
-                experience: 5,
-                city: "Покров",
-                phone: "+380685155375",
-                description: "Професійне прибирання квартир, будинків та офісів, інших приміщень. Надаю клінінгові послуги.",
-                photo: "images/cleaning.jpeg",
-                page:""
-            },
-
-               {
-                id: 18,
-                isPremium: false,
-                name: "Сергій",
-                profession: "Електрик",
-                category: "electrician",
-                rating: 4.7,
-                reviews: 1,
-                experience: 10,
-                city: "Покров",
-                phone: "+380687073216",
-                description: "Потрібен електрик? Виконаю якісно та безпечно: 🔹 Електрощити та автомати🔹 Розетки, вимикачі, проводка🔹 Освітлення та LED-підсвітка.🔹 Підключення бойлерів і побутової техніки.🔹 Діагностика та ремонт електромереж. 📍 Покров та найближчі райони. 💰 Чесні ціни без прихованих доплат. 📞 068 707 32 161. 📩 Пишіть у Direct — швидко відповідаю. БЕЗПЕЧНА ЕЛЕКТРИКА — ШВИДКО ТА НАДІЙНО "
-
-            },
-
-               {
-                id: 19,
-                isPremium: false,
-                name: "Сергій",
-                profession: "Благоустрій території",
-                category: "landscaping-services",
-                rating: 4.6,
-                reviews: 1,
-                experience: 7,
-                city: "Покров",
-                phone: "+380974517199",
-                description: "Надаємо послуги з обрізки дерев.",
-                page:""
-            },
-
-             {
-                id: 20,
-                isPremium: false,
-                name: "Артем",
-                profession: "Будівельник",
-                category: "builder",
-                rating: 4.7,
-                reviews: 1,
-                experience: 16,
-                city: "Покров",
-                phone: "+380969871930",
-                description: "Надаю будівельні послуги: Монтаж гіпсокартону, укладка лінолеуму та ламінату, откоси, поклейка шпалер, шпакльовка, внутрішнє оздоблення, натяжна стеля",
-                photo: "images/artem-build.jpeg",
-                page:""
-            },
-
-            {
-                id: 21,
-                isPremium: false,
-                name: "Артем",
-                profession: "Натяжна стеля",
-                category: "stretch-ceilings",
-                rating: 4.7,
-                reviews: 1,
-                experience: 16,
-                city: "Покров",
-                phone: "+380666572533",
-                description: "Надаю будівельні послуги: Монтаж натяжної стелі з гарантією, монтаж гіпсокартону, укладка лінолеуму та ламінату, откоси, поклейка шпалер, шпакльовка, внутрішнє оздоблення",
-                photo: "images/artem-potolok.jpeg",
-                page:""
-            },
-
-              {
-                id: 22,
-                isPremium: false,
-                name: "Володимир",
-                profession: "Будівельник",
-                category: "builder",
-                rating: 4.8,
-                reviews: 1,
-                experience: 13,
-                city: "Покров",
-                phone: "+380987256969",
-                description: "Компанія ELIZAROV-STROY виконує повний комплекс робіт із балконами та лоджіями «під ключ» — від демонтажу старого балкона до готового теплого та сучасного приміщення. Ми працюємо з балконами будь-якої складності, включаючи монтаж балконів з нуля на першому поверсі. Комплексні роботи зазвичай охоплюють демонтаж, скління, утеплення, оздоблення, електрику та встановлення додаткових елементів. Наші послуги: Засклення балконів і лоджій: * Тепле та холодне скління. * Французькі балкони (панорамне скління). * Металопластикові балконні рами. * Енергозберігаючі та мультифункціональні склопакети. * Балконні двері та вікна. Балкони під ключ: * Демонтаж старих конструкцій. * Монтаж нового балкона або лоджії. * Повне облаштування від А до Я. * Вивезення будівельного сміття. Розширення балкона (винос) * Винос по підвіконню. * Винос по підлозі. * Збільшення корисної площі балкона. * Зварювальні роботи та посилення каркаса. Дахи на балкон: * Монтаж нового даху.* Утеплення даху. * Покриття профнастилом або металочерепицею. * Герметизація від протікань. Зовнішнє оздоблення: * Обшивка сайдингом. * Обшивка профнастилом. * Монтаж відливів, козирків і нащільників. * Герметизація всіх швів. Утеплення балкона * Утеплення стін, підлоги та стелі. * Пінополістирол, XPS (стиродур), мінеральна вата. * Паро- та гідроізоляція. Внутрішнє оздоблення: * ПВХ-панелі. * Ламінована вагонка. * Гіпсокартон під фарбування. * Декоративне оздоблення стін і стелі. * Монтаж відкосів і підвіконь. Підлога на балконі: * Ламінат. * Лінолеум. * Плитка. * OSB та вирівнювання підлоги. * Тепла підлога. Електромонтаж: * Освітлення. * Розетки та вимикачі. * Проведення електропроводки. * Підсвітка балкона. Додаткові роботи: * Монтаж сушарки для білизни. * Вбудовані шафи та тумби. * Підсилення балконної плити. * Ремонт і реконструкція старих балконів. Чому ELIZAROV-STROY? * Безкоштовний замір. * Професійний монтаж. * Гарантія 5 років. * Безкоштовна доставка по Україні. * Знижки для військових та пенсіонерів. ELIZAROV-STROY — Вікна, балкони, лоджії під ключ. 📞 098 725 69 69",
-                photo: "images/elizarov-bilder.jpeg",
-                page:""
-            },
-
-            {
-                id: 30,
-                isPremium: true,
-                name: "Шукаємо майстрів",
-                photo: "images/noCard.jpeg",
-                profession: "Ми чекаємо саме вас",
-                category: "noCard",
-                rating:"",
-                reviews:"",
-                experience:"",
-                city: "Покров",
-                phone: "380957996024",
-                description: "Напишіть нам у WhatsApp",
-                page:"https://pavlenkoyurij-sudo.github.io/Our-specialists/index.html#join-master-section"
-            },
-        ];
-
-         //Функція сортування майстрів по рейтингу
-        masters.sort((a, b) => b.rating - a.rating);
+         
 
         //місцеве сховище дл фаворитів
         let favorites = JSON.parse(
@@ -367,59 +57,91 @@
         
 
         const masterGrid = document.getElementById("masterGrid");
+        const categoryNames = {
+            plumber: "Сантехнік",
+            electrician: "Електрик",
+            builder: "Будівельник",
+            welder: "Зварювальник",
+            painter: "Маляр",
+            tiler: "Плиточник",
+            handyman: "Майстер на годину",
+            "heating-installer": "Опалення",
+            "window-installer": "Встановлення вікон",
+            "door-installer": "Встановлення дверей",
+            "stretch-ceilings": "Натяжна стеля",
+            "interior-finisher": "Внутрішнє оздоблення",
+            "roof-installer": "Монтаж покрівлі",
+            "exterior-worker": "Фасадні роботи",
+            "landscaping-services": "Благоустрій території",
+            "furniture-assembler": "Меблі",
+            "conditioner-installer": "Монтаж кондиціонерів",
+            cleaning: "Прибирання",
+            worker: "Вантажники",
+            
+        };
 
-function renderMasters() {
-    masterGrid.innerHTML = "";
+        function renderMasters() {
 
-    masters.forEach(master => {
-        masterGrid.innerHTML += `
-            <div class="master-card"
-                data-category="${master.category}"
-                onclick="openMasterModal(${master.id})">
+            masterGrid.innerHTML = "";
 
-                <img src="${master.photo}"
-                    alt="${master.name}"
-                    onerror="this.onerror=null; this.src='images/default.jpeg';"> 
-                    
-                <h3>${master.name}</h3>
-
-                <p>🛠️${master.profession}</p>
-                <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
-
-                <p>⭐${master.rating} (${master.reviews} відгуків)</p>
-                <p>🏆${master.experience} років досвіду</p>
-                <p>📍${master.city}</p>
-                    
-                <a class="call-btn"
-                    href="tel:${master.phone}"
-                    onclick="event.stopPropagation()">
-                    📞Подзвонити
-                </a>
-
-                <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
-                ⭐ В обране
-            </button>
+            masters.forEach(master => {
                 
-                ${master.isPremium && master.page ? `
-                <a class="premium-btn"
-                   href="${master.page}"
-                   onclick="event.stopPropagation()">
-                    Детальніше:
-                </a>
-                ` : ""}
-            </div>
-        `; 
-    });
 
-    renderFavorites();
-}
+                masterGrid.innerHTML += `
+                    <div class="master-card"
+                        data-category="${master.category}"
+                        onclick="openMasterModal(${master.id})">
+
+                        <img src="${master.photo || 'images/default.jpeg'}"
+                            alt="${master.name}">
+                            
+                        <h3>${master.name}</h3>
+
+                        <p>🛠️${categoryNames[master.category] || master.category}</p>
+                        <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
+
+                        <p>⭐${master.rating}
+                        (${master.reviews} відгуків)
+                        </p>
+
+                        <p>
+                            🏆${master.experience} років досвіду
+                        </p>
+
+                        <p>📍${master.city}</p>
+                            
+                        <a class="call-btn"
+                            href="tel:${master.phone}"
+                            onclick="event.stopPropagation()">
+                            📞Подзвонити
+                        </a>
+
+                        <button class="favorite-btn" data-id="${master.id}" onclick="toggleFavorite(event, ${master.id})">
+                         ⭐ В обране
+                        </button>
+                        
+                        ${master.isPremium && master.page ? `
+                        <a class="premium-btn"
+                        href="${master.page}">
+                        Детальніше:
+                         </a>
+                        ` : ""}
+                        
+
+                            
+                    </div>
+                `; 
+            });
+
+            renderFavorites();
+        }
       
         //onerror="this.onerror=null; this.src='images/default.jpeg';" - це атрибут зображення, який забезпечує заміну зображення на "images/default.jpeg" у випадку помилки завантаження (наприклад, якщо вказане зображення не існує або недоступне). Це дозволяє уникнути відображення порожнього місця або помилки замість зображення майстра.
 
 
 
 
-        renderMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
+        loadMasters(); //рендерить список майстрів -const masterGrid = document.getElementById("masterGrid");
         
         
 
@@ -454,6 +176,47 @@ function renderMasters() {
                 }
             });
         }
+
+
+
+        // Логіка модального вікна
+        const modal = document.getElementById("masterModal");
+
+        function openMasterModal(id) {
+            // Знаходимо майстра в масиві за id
+            const master = masters.find(m => m.id === id);
+            if (!master) return;
+
+            // Отримуємо зрозумілу назву категорії зі словника categoryNames
+            const categoryTitle = categoryNames[master.category] || master.profession || master.category;
+
+            // Заповнюємо дані в модалці
+            document.getElementById("modalId").textContent = "🆔 " + master.id;
+            document.getElementById("modalName").textContent = "👤 Ім'я: " + master.name;            
+            document.getElementById("modalProfession").textContent = "🛠️ Спеціалізація: " + categoryTitle; // 👈 Вже не буде undefined!
+            document.getElementById("modalExperience").textContent = "🏆 Досвід: " + master.experience + " років";
+            document.getElementById("modalCity").textContent = "📍 Місто: " + master.city;
+            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
+            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
+            
+            const photoEl = document.getElementById("modalPhoto");
+            photoEl.src = master.photo || 'images/default.jpeg';
+            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
+
+            // Відкриваємо вікно
+            modal.showModal();
+        }
+
+        function closeMasterModal() {
+            modal.close();
+        }
+
+        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
                                 
                                            
 
@@ -482,39 +245,8 @@ function renderMasters() {
             });
         }
 
-      // Логіка модального вікна
-        const modal = document.getElementById("masterModal");
 
-        function openMasterModal(id) {
-            // Знаходимо майстра в масиві за id
-            const master = masters.find(m => m.id === id);
-            if (!master) return;
-
-            // Заповнюємо дані в модалці
-            document.getElementById("modalName").textContent = master.name;
-            document.getElementById("modalProfession").textContent = "🛠️ " + master.profession;
-            document.getElementById("modalCity").textContent = "📍 " + master.city;
-            document.getElementById("modalDescription").textContent = master.description || "Опис відсутній.";
-            document.getElementById("modalCallBtn").href = "tel:" + master.phone;
-            
-            const photoEl = document.getElementById("modalPhoto");
-            photoEl.src = master.photo || 'images/default.jpeg';
-            photoEl.onerror = () => { photoEl.src = 'images/default.jpeg'; };
-
-            // Відкриваємо вікно
-            modal.showModal();
-        }
-
-        function closeMasterModal() {
-            modal.close();
-        }
-
-        // Закриття при кліку на вільну частину екрана (на затемнений фон backdrop)
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.close();
-            }
-        });
+        
 
 
 
@@ -542,12 +274,7 @@ function renderMasters() {
                 top: 0,
                 behavior: "smooth"//забезпечує плавний скролінг
             });
-        });
-
-    
-        
-     
-            
+        });         
      
             
             
