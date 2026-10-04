@@ -1,6 +1,9 @@
+        // Функція для екранування, захист від XSS атак
+        const esc = s => String(s ?? '').replace(/[&<>"']/g,
+            c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+       
 
-     
-           const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
+        const supabaseUrl = "https://kvnivreuwjgxqekaswed.supabase.co";
         const supabaseKey = "sb_publishable_lFliydUt3DSoAuntl79FdA_zHUVZpga";
 
         const supabaseClient = window.supabase.createClient(
@@ -89,29 +92,29 @@
 
                 masterGrid.innerHTML += `
                     <div class="master-card"
-                        data-category="${master.category}"
+                        data-category="${esc(master.category)}"
                         onclick="openMasterModal(${master.id})">
 
-                        <img src="${master.photo || 'images/default.jpeg'}"
-                            alt="${master.name}">
+                        <img src="${esc(master.photo) || 'images/default.jpeg'}"
+                            alt="${esc(master.name)}">
                             
-                        <h3>${master.name}</h3>
+                        <h3>${esc(master.name)}</h3>
 
                         <p>🛠️${categoryNames[master.category] || master.category}</p>
-                        <p class="master-description">📜${master.description || 'Надання професійних послуг в нашому місті'}</p>
+                        <p class="master-description">📜${esc(master.description) || 'Надання професійних послуг в нашому місті'}</p>
 
                         <p>⭐${master.rating}
                         (${master.reviews} відгуків)
                         </p>
 
                         <p>
-                            🏆${master.experience} років досвіду
+                            🏆${esc(master.experience)} років досвіду
                         </p>
 
-                        <p>📍${master.city}</p>
+                        <p>📍${esc(master.city)}</p>
                             
                         <a class="call-btn"
-                            href="tel:${master.phone}"
+                            href="tel:${esc(master.phone)}"
                             onclick="event.stopPropagation()">
                             📞Подзвонити
                         </a>
@@ -122,7 +125,7 @@
                         
                         ${master.isPremium && master.page ? `
                         <a class="premium-btn"
-                        href="${master.page}">
+                        href="${esc(master.page)}">
                         Детальніше:
                          </a>
                         ` : ""}
@@ -274,7 +277,5 @@
                 top: 0,
                 behavior: "smooth"//забезпечує плавний скролінг
             });
-        });         
-     
-            
+        });
             
