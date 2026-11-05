@@ -1082,8 +1082,32 @@ header nav a[href^="mailto:"]:hover {
         border-radius: 999px;
     }
 
-    /* Стиль для кнопки сторінок інших міст  */
+    /*--- секція інших міст ---*/
+    .link-city-section {
+        text-align: center;
+    }
+
+    .link-city-section > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 50px 20px;
+        text-align: center;
+        background-color: rgba(255,255,255,0.65);
+        backdrop-filter: blur(1px);
+        align-items: center;
+        gap: 10px;
+
+    }  
+     
+
+   /* Стиль для кнопки сторінок інших міст  */
     .link-city-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        align-items: center;
         background-color: #e65c00; /* Помаранчевий колір */
         color: #ffffff !important;   /* Білий текст */
         padding: 8px 16px;
@@ -1098,7 +1122,7 @@ header nav a[href^="mailto:"]:hover {
         background-color: #ff6600; /* Трохи темніший при наведенні */
         box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
         transform: translateY(-1px);
-    }
+    } 
 
 
 
